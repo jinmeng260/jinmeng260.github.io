@@ -3,10 +3,10 @@
   <channel>
     <title>Cheenwe</title>
     <description>A Ruby Coder</description>
-    <link>http://0.0.0.0:4000/</link>
-    <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 10 Jan 2018 20:07:44 +0800</pubDate>
-    <lastBuildDate>Wed, 10 Jan 2018 20:07:44 +0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 10 Jan 2018 20:56:24 +0800</pubDate>
+    <lastBuildDate>Wed, 10 Jan 2018 20:56:24 +0800</lastBuildDate>
     <generator>Jekyll v3.7.0</generator>
     
       <item>
@@ -78,8 +78,8 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Fri, 22 Dec 2017 00:00:00 +0800</pubDate>
-        <link>http://0.0.0.0:4000/2017-12-22/Ruby-Selenium/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000/2017-12-22/Ruby-Selenium/</guid>
+        <link>http://localhost:4000/2017-12-22/Ruby-Selenium/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-12-22/Ruby-Selenium/</guid>
         
         <category>ruby</category>
         
@@ -108,8 +108,8 @@ end
 
 </description>
         <pubDate>Wed, 13 Dec 2017 00:00:00 +0800</pubDate>
-        <link>http://0.0.0.0:4000/2017-12-13/Ruby-Errors-Record/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000/2017-12-13/Ruby-Errors-Record/</guid>
+        <link>http://localhost:4000/2017-12-13/Ruby-Errors-Record/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-12-13/Ruby-Errors-Record/</guid>
         
         <category>ruby</category>
         
@@ -328,8 +328,8 @@ Or, if you don’t want/need a background service you can just run:
 
 </description>
         <pubDate>Fri, 01 Dec 2017 00:00:00 +0800</pubDate>
-        <link>http://0.0.0.0:4000/2017-12-01/Mac-Install-Soft/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000/2017-12-01/Mac-Install-Soft/</guid>
+        <link>http://localhost:4000/2017-12-01/Mac-Install-Soft/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-12-01/Mac-Install-Soft/</guid>
         
         <category>mac</category>
         
@@ -351,8 +351,8 @@ Or, if you don’t want/need a background service you can just run:
 
 </description>
         <pubDate>Wed, 29 Nov 2017 00:00:00 +0800</pubDate>
-        <link>http://0.0.0.0:4000/2017-11-29/AngularJS-Learn/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000/2017-11-29/AngularJS-Learn/</guid>
+        <link>http://localhost:4000/2017-11-29/AngularJS-Learn/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-11-29/AngularJS-Learn/</guid>
         
         <category>angularjs</category>
         
@@ -443,8 +443,8 @@ sudo /usr/local/nginx/sbin/nginx -s reload
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Tue, 14 Nov 2017 00:00:00 +0800</pubDate>
-        <link>http://0.0.0.0:4000/2017-11-14/project-deploy/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000/2017-11-14/project-deploy/</guid>
+        <link>http://localhost:4000/2017-11-14/project-deploy/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-11-14/project-deploy/</guid>
         
         <category>deploy</category>
         
@@ -485,8 +485,8 @@ gem server
 
 </description>
         <pubDate>Sun, 29 Oct 2017 00:00:00 +0800</pubDate>
-        <link>http://0.0.0.0:4000/2017-10-29/open-local-gem-server/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000/2017-10-29/open-local-gem-server/</guid>
+        <link>http://localhost:4000/2017-10-29/open-local-gem-server/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-10-29/open-local-gem-server/</guid>
         
         <category>rails</category>
         
@@ -520,8 +520,8 @@ gem install vendor/cache/*
 
 </description>
         <pubDate>Wed, 25 Oct 2017 00:00:00 +0800</pubDate>
-        <link>http://0.0.0.0:4000/2017-10-25/rails-offline-bundle/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000/2017-10-25/rails-offline-bundle/</guid>
+        <link>http://localhost:4000/2017-10-25/rails-offline-bundle/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-10-25/rails-offline-bundle/</guid>
         
         <category>rails</category>
         
@@ -589,8 +589,8 @@ server {
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Fri, 20 Oct 2017 00:00:00 +0800</pubDate>
-        <link>http://0.0.0.0:4000/2017-10-20/nginx-config/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000/2017-10-20/nginx-config/</guid>
+        <link>http://localhost:4000/2017-10-20/nginx-config/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-10-20/nginx-config/</guid>
         
         <category>nginx</category>
         
@@ -630,8 +630,8 @@ bundle install
 &lt;p&gt;2017 10.20&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 Oct 2017 00:00:00 +0800</pubDate>
-        <link>http://0.0.0.0:4000/2017-10-09/puma-install-errors/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000/2017-10-09/puma-install-errors/</guid>
+        <link>http://localhost:4000/2017-10-09/puma-install-errors/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-10-09/puma-install-errors/</guid>
         
         <category>puma</category>
         
@@ -720,8 +720,8 @@ end
 
 </description>
         <pubDate>Fri, 15 Sep 2017 00:00:00 +0800</pubDate>
-        <link>http://0.0.0.0:4000/2017-09-15/ruby-send-message-to-activemq/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000/2017-09-15/ruby-send-message-to-activemq/</guid>
+        <link>http://localhost:4000/2017-09-15/ruby-send-message-to-activemq/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-09-15/ruby-send-message-to-activemq/</guid>
         
         <category>gem</category>
         
