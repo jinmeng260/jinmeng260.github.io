@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>如何构建优质代码</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="如何构建优质代码, coding, coding, Cheenwe" />
+    <meta name="description" content="如何构建优质代码, coding, coding, DRY" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://0.0.0.0:4000/favicon.ico" />
+    <link rel="canonical" href="http://0.0.0.0:4000/2016-07-04/how-to-build-quality-code/" />
+    <link rel="alternate" type="application/rss+xml" title="Cheenwe" href="http://0.0.0.0:4000/feed.xml"  />
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/octicons/3.5.0/octicons.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/post.css" />
+    
+</head>
+
+
+<body>
+<div class="main">
+
+  
+  
+  <header>
+    <nav class="navbar navbar-tiffany rectangle" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://0.0.0.0:4000/">Cheenwe</a>
+          <p class="navbar-text">A Ruby Coder</p>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li>
+            <a href="http://0.0.0.0:4000/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
+            </li>
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/archive/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Archive</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/category/" class="word-keep"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;Category</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/tags/" class="word-keep"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;Tag</a>
+            </li>
+            
+            
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/project/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Project</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+<li>
+
+  <a href="#stq=" class="search-button" data-toggle="modal" data-target="#myModal"><span class="octicon octicon-search">&nbsp;&nbsp; Search</span></a>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form action="get" id="site_search">
+            <input type="text" id="search_box" placeholder="Search">
+            <button class="btn btn-default" type="submit"><span class="octicon octicon-search"></span></button>
+          </form>
+        </div>
+        <div class="modal-body">
+          <ul id="search_results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+    <div class="container">
+        <div class="row">
+    <div class="content col-lg-9">
+        <div class="sheet post">
+          <header>
+            <h2>如何构建优质代码</h2>
+            <p class="post-meta">
+                <span class="octicon octicon-clock"></span> Jul 4, 2016
+            </p>
+            <p class="post-tag">
+                <span><a href="http://0.0.0.0:4000/category/#coding"><span class="octicon octicon-list-unordered"></span>&nbsp;coding</a></span>
+                <span>
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#coding"><span class="octicon octicon-tag"></span>&nbsp;coding</a>
+                    
+                </span>
+            </p>
+          </header>
+          <hr class="boundary">
+          <article>
+            <h2 id="dry">DRY</h2>
+
+<p>DRY 是一个最简单的法则，也是最容易被理解的。
+但它也可能是最难被应用的（因为要做到这样，我们需要在泛型设计上做相当的努力，
+这并不是一件容易的事）。</p>
+
+<p>它意味着，当我们在两个或多个地方发现一些相似的代码的时候，
+我们需要把他们的共性抽象出来，形成一个唯一的新方法，并且改变现有的代码，
+让他们以一些合适的参数调用这个新的方法。</p>
+
+<p>DRY 这一法则可能是编程界中最通用的法则了。
+目前为止，应该没有哪个程序员对这一法则存有异议。
+但是，我们却能发现，一些程序在编写单元测试时忘记了这一法则：
+让我们想象一下，当你改变一个类的若干接口，如果你没有使用DRY，
+那么，那些通过调用一系例类的接口的unit test的程序，都需要被手动的更改。</p>
+
+<p>比如：如果你的unit test的诸多test cases中没有使用一个标准共有的构造类的方法，
+而是每个test case自己去构造类的实例，那么，
+当类的构造函数被改变时，你需要修改多少个test cases啊。
+这就是不使用DRY法则所带来的恶果。</p>
+
+<h2 id="短小的方法">短小的方法</h2>
+
+<p>至少，我们有下面三个不错的理由要求程序员们写下短小的方法。</p>
+
+<ul>
+<li><p>代码会变得更容易阅读。</p></li>
+<li><p>代码会变得更容易重用（短方法可以减少代码间的耦合程度）</p></li>
+<li><p>代码会变得更容易测试。</p></li>
+</ul>
+
+<h2 id="良好的命名规范">良好的命名规范</h2>
+
+<p>使用不错的统一的命名规范可以让你的程序变得更容易阅读和维护，
+当一个类，一个函数，一个变量的名字达到了那种可以“望文生义”的境界时，
+我们就可以少一些文档，少一些沟通。</p>
+
+<h2 id="赋予每个类正确的职责">赋予每个类正确的职责</h2>
+
+<p>一个类，一个职责，这类规则可以参考一下类的SOLID 法则。
+但我们这里强调的不是一种单一的职责，而是一个正确的职责。
+如果你有一个类叫Customer，我们就不应该让这个类有sales的方法，
+我们只能让这个类有和Customer有最直接关系的方法。</p>
+
+<h2 id="把代码组织起来">把代码组织起来</h2>
+
+<p>把代码组织起来有两组层次。</p>
+
+<p>物理层组织：无论你使用什么样的目录，包(package)或命名空间(namespace)等的结构，
+你需要把你的类用一种标准的方法组织起来，这样可以方便查找。
+这是一种物理性质的代码组织。</p>
+
+<p>逻辑层组织： 所谓逻辑层，主要是说，我们如果把两个不同功能的类或方法通过某种规范联系和组织起来。
+这里主要关注的是程序模块间的接口。
+这就是我们经常见到的程序模块的架构。</p>
+
+<h2 id="创建大量的单元测试">创建大量的单元测试</h2>
+
+<p>单元测试是最接近BUG的地方，也是修改BUG成本最低的地方，同样也是决定整个软件质量好坏的地方。所以，只要有可能，你就应该写更多的，更好的单元测试案例，这样当你未来有相应代码改变的时候，你可以很简单的知道代码的改变是否影响了其它单元。</p>
+
+<h2 id="经常重构你的代码">经常重构你的代码</h2>
+
+<p>软件开发是一种持续的发现的过程，从而让你的代码可以跟上最新的实际需求的变化。
+所以，我们要经常重构自己的代码来跟上这样的变化。
+当然，重构是有风险的，并不是所有的重构都是成功的，也不是我们随时都可以重构代码。</p>
+
+<p>下面是两个重构代码的先要条件，以避免让你引入更多的BUG，或是把本来就烂的代码变得更烂。</p>
+
+<p>有大量的单元测试来测试。正如前面所说，重构需要用大量的单元测试来做保障和测试。</p>
+
+<p>每次重构都不要大，用点点滴滴的小的重构来代替那种大型的重构。
+有太多的时候，当我们一开始计划重构2000行代码，而在3个小时后，
+我们就放弃这个计划并把代码恢复到原始的版本。
+所以，我们推荐的是，重构最好是从点点滴滴积累起来的。</p>
+
+<h2 id="程序注释是邪恶的">程序注释是邪恶的</h2>
+
+<p>这一条一定是充满争议的，大多数程序员都认为程序注释是非常好的，
+是的，没错，程序注释在理论上是非常不错的。</p>
+
+<p>但是，在实际过程中，程序员们写出来的注释却是很糟糕的，
+从而导致了程序注释成为了一切邪恶的化身，也导致了我们在阅读程序时，
+大多数时候，我们都不读注释而直接读代码。</p>
+
+<p>所以，在这里，我们并不是鼓励不写注释，而是——如果你的注释写得不够好的话，
+那么，你还不如把更重要的时间花在重构一下你的代码，让你的代码更加易读，
+更加清楚，这会比注释更好。</p>
+
+<h2 id="注重接口而不是实现">注重接口，而不是实现</h2>
+
+<p>这是一个最经典的规则了。</p>
+
+<p>接口注重的是——“What”，是抽象，实现注重的是——“How”，是细节。
+接口相当于一种合同契约，而实际的细节相当于对这种合同契约的一种运作和实现。
+运作是可以很灵活的，而合同契约则需要是相对需要稳定和不变的。</p>
+
+<p>如果，一个接口没有设计好，而需要经常性的变化的话，那我们可以试想一下，这带来的后果，
+这绝对会是一件成本很大的事情。</p>
+
+<p>所以，在软件开发和调试中，接口是重中之重，而不是实现。
+然而我们的程序员总是注重于实现细节，所以他们局部的代码写的非常不错，
+但软件整体却设计得相对较差。
+这点需要我们多多注意。</p>
+
+<h2 id="代码审查机制">代码审查机制</h2>
+
+<p>所有人都会出错，一个人出错的概率是很大的，两个人出错的概率就会小一些，
+人多一些，出错的概率就会越来越小。</p>
+
+<p>因为，人多了，就能够从不同的角度看待一个事情，虽然这样可能导致无效率的争论，
+但比起软件产品release后出现问题的维护成本，这点成本算是相当值得的。</p>
+
+<p>所以，这就是我们需要让不同的人来review代码，代码审查机制不但是一种发现问题的最有效的机制，
+同时也是一种可以知识共享的机制。</p>
+
+<p>当然，对于Code Review来说，下面有几个基本原则：</p>
+
+<p>审查者的能力一定要大于或等于代码作者的能力，
+不然，代码审查就成了一种对新手的training。</p>
+
+<p>而且，为了让审查者真正负责起来，而不是在敷衍审查工作，
+我们需要让审查者对审查过的代码负主要责任，而不是代码的作者。</p>
+
+<p>另外，好的代码审查应该不是当代码完成的时候，
+而是在代码编写的过程中，不断地迭代代码审查。
+好的实践，无论代码是否完成，代码审核需要几天一次地不断地进行。</p>
+
+<h2 id="注">注</h2>
+
+<p>原文：<a href="http://justjavac.com/other/2012/04/13/how-to-build-quality-code.html">http://justjavac.com/other/2012/04/13/how-to-build-quality-code.html</a></p>
+
+          </article>
+          <hr class="boundary">
+        </div>
+
+        <div class="pad-min"></div>
+        <div id="post-comment" class="sheet post">
+            <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="/2016-07-04/how-to-build-quality-code/" ></div>
+
+<script type="text/javascript">
+(function(){
+var appid = "cysX5sziD";
+var conf = "prod_45285c7173354294675fbce39f863858";
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </div>
+
+    </div>
+
+    <div class="content-navigation col-lg-3">
+      <div class="shadow-bottom-center" >
+        <div class="content-navigation-toc">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Toc
+            </div>
+            <div class="content-navigation-list toc"></div>
+        </div>
+        <div class="content-navigation-tag">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Tags
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#coding"><span class="octicon octicon-tag"></span>&nbsp;coding</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-navigation-related">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Related
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+
+                    
+
+                    
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-07-10/code-review/">深入理解代码评审</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-06-10/refactor/">代码重构</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
+
+    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
+        <a href="javascript:void(0);">
+            <div class="arrow"></div>
+            <div class="stick"></div>
+        </a>
+    </div>
+</div>
+
+<footer  class="footnote footnote-tiffany">
+	<div class="container">
+		<div class="summary">
+			总访问<span id="busuanzi_value_site_pv"></span>次，访客<span id="busuanzi_value_site_uv"></span>人次，本页总阅读<span id="busuanzi_value_page_pv"></span>次
+		</div>
+		</line>
+		<a class="foot-item" href="mailto:cxhyun@126.com" target="_blank"><span class="octicon octicon-mail"></span></a>
+		<a class="foot-item" href="https://github.com/cheenwe" target="_blank"><span class="octicon octicon-mark-github"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/feed.xml" target="_blank"><span class="octicon octicon-rss"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/link/"><span class="octicon octicon-link-external"></span></a>
+		&nbsp;
+		<a href="http://0.0.0.0:4000/about/"><span class="word-keep">&copy;Cheenwe</span></a>
+		<a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备16011691号</a>
+
+	</div>
+</footer>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/static/js/lunr.min.js"></script>
+<script src="/static/js/search.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/script.js"></script>
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/post.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/toc.js"></script>
+
+
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?53d63f40f6eef2f51c5cf14443efe386";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

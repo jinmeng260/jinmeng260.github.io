@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mac下发布Qt程序并修改图标</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="Mac下发布Qt程序并修改图标, qt, qt,mac, Cheenwe" />
+    <meta name="description" content="Mac下发布Qt程序并修改图标, qt, qt,mac, Mac下发布Qt" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://0.0.0.0:4000/favicon.ico" />
+    <link rel="canonical" href="http://0.0.0.0:4000/2016-10-17/qt-deploy/" />
+    <link rel="alternate" type="application/rss+xml" title="Cheenwe" href="http://0.0.0.0:4000/feed.xml"  />
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/octicons/3.5.0/octicons.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/post.css" />
+    
+</head>
+
+
+<body>
+<div class="main">
+
+  
+  
+  <header>
+    <nav class="navbar navbar-tiffany rectangle" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://0.0.0.0:4000/">Cheenwe</a>
+          <p class="navbar-text">A Ruby Coder</p>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li>
+            <a href="http://0.0.0.0:4000/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
+            </li>
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/archive/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Archive</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/category/" class="word-keep"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;Category</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/tags/" class="word-keep"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;Tag</a>
+            </li>
+            
+            
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/project/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Project</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+<li>
+
+  <a href="#stq=" class="search-button" data-toggle="modal" data-target="#myModal"><span class="octicon octicon-search">&nbsp;&nbsp; Search</span></a>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form action="get" id="site_search">
+            <input type="text" id="search_box" placeholder="Search">
+            <button class="btn btn-default" type="submit"><span class="octicon octicon-search"></span></button>
+          </form>
+        </div>
+        <div class="modal-body">
+          <ul id="search_results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+    <div class="container">
+        <div class="row">
+    <div class="content col-lg-9">
+        <div class="sheet post">
+          <header>
+            <h2>Mac下发布Qt程序并修改图标</h2>
+            <p class="post-meta">
+                <span class="octicon octicon-clock"></span> Oct 17, 2016
+            </p>
+            <p class="post-tag">
+                <span><a href="http://0.0.0.0:4000/category/#qt"><span class="octicon octicon-list-unordered"></span>&nbsp;qt</a></span>
+                <span>
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#qt"><span class="octicon octicon-tag"></span>&nbsp;qt</a>
+                    
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#mac"><span class="octicon octicon-tag"></span>&nbsp;mac</a>
+                    
+                </span>
+            </p>
+          </header>
+          <hr class="boundary">
+          <article>
+            <h1 id="mac下发布qt">Mac下发布Qt</h1>
+
+<p>周六在公司折腾一天Mac下发布Qt程序，搞的一头雾水，今天又研究了半天，终于搞定了，记录操作步骤，备忘。</p>
+
+<p><a href="http://doc.qt.io/qt-5/osx-deployment.html">官方步骤</a></p>
+
+<p>软件版本：</p>
+
+<blockquote>
+  <p>Qt 5.7</p>
+</blockquote>
+
+<p>Qt程序调用了第三方库；</p>
+
+<h2 id="mac下发布qt程序">Mac下发布Qt程序</h2>
+<p>Mac中的GUI应用必须以Bundle的形式运行，所谓Bundle,是一个以”.app”结尾命名的文件夹，系统自动识别它为一个应用包，应用所有的东西(执行文件、链接的动态库、资源文件等等)都在里面了，打开应用直接”open myApp.app”就可以了，安装的时候直接把Bundle拖到Finder里就行了。卸载的时候直接把Bundle删除就行了。</p>
+
+<ul>
+  <li>这里的App 名字指的是 intelligent-detective</li>
+</ul>
+
+<p>Qt第一次运行构建后，会在构建目录下生产 intelligent-detective.app 文件和一系列的 xx.o 文件</p>
+
+<ol>
+  <li>进入到 构建目录下，</li>
+</ol>
+
+<blockquote>
+  <p>cd release</p>
+</blockquote>
+
+<ol>
+  <li>查看该app所需的依赖库</li>
+</ol>
+
+<blockquote>
+  <p>otool -L intelligent-detective.app/Contents/MacOS/intelligent-detective</p>
+</blockquote>
+
+<ol>
+  <li>把所需要的依赖库拷入该app的Frameworks目录</li>
+</ol>
+
+<p>因为我也不知道各个库的作用，就把全部的都拷进去了</p>
+
+<blockquote>
+  <p>cp -R  ~/Qt5.7.0/5.7/clang_64/lib/ intelligent-detective.app/Contents/Frameworks</p>
+</blockquote>
+
+<ol>
+  <li>使用 macdepolyqt 进行打包</li>
+</ol>
+
+<blockquote>
+  <p>macdeployqt intelligent-detective.app</p>
+</blockquote>
+
+<p>会出现类似以下的错误</p>
+
+<blockquote>
+  <p>ERROR: no file at “/lib/libopencv_core.3.1.dylib”</p>
+</blockquote>
+
+<p><strong>以下两种方式不确定那种方式使其生效</strong></p>
+
+<p>4.1. 创建该目录， 并把动态链接库拷贝到该文件夹下。</p>
+
+<blockquote>
+  <p>cd /</p>
+</blockquote>
+
+<blockquote>
+  <p>sudo mkdir lib</p>
+</blockquote>
+
+<blockquote>
+  <p>sudo chmod 777 /lib/</p>
+</blockquote>
+
+<blockquote>
+  <p>cp /usr/local/lib/libopencv_core.3.1.dylib /lib/</p>
+</blockquote>
+
+<p>4.2. 将链接库修改成它的绝对路径</p>
+
+<blockquote>
+  <p>install_name_tool -change “libopencv_core.3.1.dylib” “/usr/local/lib/libopencv_core.3.1.dylib”  intelligent-detective.app/Contents/MacOS/intelligent-detective</p>
+</blockquote>
+
+<p>再次执行打包即可。</p>
+
+<h2 id="添加图标">添加图标</h2>
+<ol>
+  <li>在配置文件 intelligent-detective.pro 中添加</li>
+</ol>
+
+<blockquote>
+  <p>ICON = intelligent-detective.icns</p>
+</blockquote>
+
+<ol>
+  <li>在项目的主目录下添加图片</li>
+</ol>
+
+<blockquote>
+  <p>intelligent-detective.icns</p>
+</blockquote>
+
+<ol>
+  <li>编译运行并查看配置文件</li>
+</ol>
+
+<blockquote>
+  <p>nano intelligent-detective.app/Contents/Info.plist</p>
+</blockquote>
+
+<p>&lt; key&gt;CFBundleIconFile&lt;/key&gt;</p>
+
+<p>&lt; string&gt;intelligent-detective.icns&lt;/string&gt;</p>
+
+          </article>
+          <hr class="boundary">
+        </div>
+
+        <div class="pad-min"></div>
+        <div id="post-comment" class="sheet post">
+            <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="/2016-10-17/qt-deploy/" ></div>
+
+<script type="text/javascript">
+(function(){
+var appid = "cysX5sziD";
+var conf = "prod_45285c7173354294675fbce39f863858";
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </div>
+
+    </div>
+
+    <div class="content-navigation col-lg-3">
+      <div class="shadow-bottom-center" >
+        <div class="content-navigation-toc">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Toc
+            </div>
+            <div class="content-navigation-list toc"></div>
+        </div>
+        <div class="content-navigation-tag">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Tags
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#qt"><span class="octicon octicon-tag"></span>&nbsp;qt</a>
+                    </li>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#mac"><span class="octicon octicon-tag"></span>&nbsp;mac</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-navigation-related">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Related
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+
+                    
+
+                    
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-12-01/Mac-Install-Soft/">Mac Install Soft</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-12-14/ubuntu-install-qt/">Ubuntu 安装QT报错解决</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
+
+    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
+        <a href="javascript:void(0);">
+            <div class="arrow"></div>
+            <div class="stick"></div>
+        </a>
+    </div>
+</div>
+
+<footer  class="footnote footnote-tiffany">
+	<div class="container">
+		<div class="summary">
+			总访问<span id="busuanzi_value_site_pv"></span>次，访客<span id="busuanzi_value_site_uv"></span>人次，本页总阅读<span id="busuanzi_value_page_pv"></span>次
+		</div>
+		</line>
+		<a class="foot-item" href="mailto:cxhyun@126.com" target="_blank"><span class="octicon octicon-mail"></span></a>
+		<a class="foot-item" href="https://github.com/cheenwe" target="_blank"><span class="octicon octicon-mark-github"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/feed.xml" target="_blank"><span class="octicon octicon-rss"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/link/"><span class="octicon octicon-link-external"></span></a>
+		&nbsp;
+		<a href="http://0.0.0.0:4000/about/"><span class="word-keep">&copy;Cheenwe</span></a>
+		<a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备16011691号</a>
+
+	</div>
+</footer>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/static/js/lunr.min.js"></script>
+<script src="/static/js/search.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/script.js"></script>
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/post.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/toc.js"></script>
+
+
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?53d63f40f6eef2f51c5cf14443efe386";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

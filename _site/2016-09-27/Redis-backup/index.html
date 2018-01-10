@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Redis 持久化与备份策略</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="Redis 持久化与备份策略, redis, redis,backup, Cheenwe" />
+    <meta name="description" content="Redis 持久化与备份策略, redis, redis,backup, 持久化" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://0.0.0.0:4000/favicon.ico" />
+    <link rel="canonical" href="http://0.0.0.0:4000/2016-09-27/Redis-backup/" />
+    <link rel="alternate" type="application/rss+xml" title="Cheenwe" href="http://0.0.0.0:4000/feed.xml"  />
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/octicons/3.5.0/octicons.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/post.css" />
+    
+</head>
+
+
+<body>
+<div class="main">
+
+  
+  
+  <header>
+    <nav class="navbar navbar-tiffany rectangle" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://0.0.0.0:4000/">Cheenwe</a>
+          <p class="navbar-text">A Ruby Coder</p>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li>
+            <a href="http://0.0.0.0:4000/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
+            </li>
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/archive/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Archive</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/category/" class="word-keep"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;Category</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/tags/" class="word-keep"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;Tag</a>
+            </li>
+            
+            
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/project/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Project</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+<li>
+
+  <a href="#stq=" class="search-button" data-toggle="modal" data-target="#myModal"><span class="octicon octicon-search">&nbsp;&nbsp; Search</span></a>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form action="get" id="site_search">
+            <input type="text" id="search_box" placeholder="Search">
+            <button class="btn btn-default" type="submit"><span class="octicon octicon-search"></span></button>
+          </form>
+        </div>
+        <div class="modal-body">
+          <ul id="search_results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+    <div class="container">
+        <div class="row">
+    <div class="content col-lg-9">
+        <div class="sheet post">
+          <header>
+            <h2>Redis 持久化与备份策略</h2>
+            <p class="post-meta">
+                <span class="octicon octicon-clock"></span> Sep 27, 2016
+            </p>
+            <p class="post-tag">
+                <span><a href="http://0.0.0.0:4000/category/#redis"><span class="octicon octicon-list-unordered"></span>&nbsp;redis</a></span>
+                <span>
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#redis"><span class="octicon octicon-tag"></span>&nbsp;redis</a>
+                    
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#backup"><span class="octicon octicon-tag"></span>&nbsp;backup</a>
+                    
+                </span>
+            </p>
+          </header>
+          <hr class="boundary">
+          <article>
+            <h1 id="持久化">持久化</h1>
+
+<p>redis 是内存数据库，掉电会丢失，转移数据不便。持久化就是内存数据到硬盘数据的转化。 当然，也可以硬盘到内存（备份的概念，保存，恢复）。</p>
+
+<h2 id="实现">实现</h2>
+
+<p>两种方法: 快照方式（rdb）+日志方式（aof） 快速+最大化redis性能+方便: rdb 模式 更持久: aof 模式</p>
+
+<h3 id="rdb-快照模式">rdb 快照模式</h3>
+
+<ul>
+  <li>Snapshotting (快照) 语法</li>
+</ul>
+
+<p>快照是默认的持久化方式（内存全拷贝）。这种方式是就是将内存中数据以快照的方式写入到二进制文件中,默认的文件名为dump.rdb。可以通过配置设置自动做快照持久 化的方式。我们可以配置redis在n秒内如果超过m个key被修改就自动做快照，下面是默认的快照保存配置。（建议从下往上看，60s-300s-900s）</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    save 900 1  //900秒内如果超过1个key被修改，则发起快照保存
+    save 300 10 //300秒内容如超过10个key被修改，则发起快照保存
+    save 60 10000  //<span class="o">(</span>这3个选项都屏蔽,则rdb禁用<span class="o">)</span>
+
+    stop-writes-on-bgsave-error <span class="nb">yes</span>  // 后台备份进程出错时,主进程停不停止写入
+    rdbcompression <span class="nb">yes</span>    // 导出的rdb文件是否压缩
+    Rdbchecksum   <span class="nb">yes</span> //  导入rbd恢复时数据时,要不要检验rdb的完整性
+    dbfilename dump.rdb  //导出来的rdb文件名
+    <span class="nb">dir</span> /var/lib/redis/  //rdb的放置路径
+</code></pre></div></div>
+
+<ul>
+  <li>详细的快照保存过程</li>
+</ul>
+
+<p>1.redis调用fork,现在有了子进程和父进程。</p>
+
+<p>2.父进程继续处理client请求，子进程负责将内存内容写入到临时文件。由于os的写时复制机制（copy on write)父子进程会共享相同的物理页面，当父进程处理写请求时os会为父进程要修改的页面创建副本，而不是写共享的页面。所以子进程的地址空间内的数 据是fork时刻整个数据库的一个快照。</p>
+
+<p>3.当子进程将快照写入临时文件完毕后，用临时文件替换原来的快照文件，然后子进程退出。</p>
+
+<p>client 也可以使用save或者bgsave命令通知redis做一次快照持久化。save操作是在主线程中保存快照的，由于redis是用一个主线程来处理所有 client的请求，这种方式会阻塞所有client请求。所以不推荐使用。另一点需要注意的是，每次快照持久化都是将内存数据完整写入到磁盘一次，并不是增量的只同步增加数据。如果数据量大的话，而且写操作比较多，必然会引起大量的磁盘io操作，可能会严重影响性能。</p>
+
+<p>另外由于快照方式是在一定间隔时间做一次的，所以如果redis意外down掉的话，就会丢失最后一次快照后的所有修改。如果应用要求不能丢失任何修改的话，可以采用aof持久化方式。</p>
+
+<h3 id="aof-日志模式">aof 日志模式</h3>
+
+<p>aof 比快照方式有更好的持久化性，是由于在使用aof持久化方式时,redis会将每一个收到的写命令都通过write函数追加到文件中(默认是 appendonly.aof)。当redis重启时会通过重新执行文件中保存的写命令来在内存中重建整个数据库的内容。当然由于os会在内核中缓存 write做的修改，所以可能不是立即写到磁盘上。这样aof方式的持久化也还是有可能会丢失部分修改。不过我们可以通过配置文件告诉redis我们想要 通过fsync函数强制os写入到磁盘的时机。有三种方式如下（默认是: 每秒fsync一次）</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>appendonly <span class="nb">yes</span>              //启用aof持久化方式
+<span class="c"># appendfsync always      //每收到写命令就立即强制写入磁盘，最慢的，但是保证完全的持久化，不推荐使用</span>
+appendfsync everysec     //每秒钟强制写入磁盘一次，在性能和持久化方面做了很好的折中，推荐
+<span class="c"># appendfsync no         //完全依赖os，性能最好,持久化没保证（操作系统自身的同步）</span>
+no-appendfsync-on-rewrite  <span class="nb">yes</span>  //正在导出rdb快照的过程中,要不要停止同步aof
+auto-aof-rewrite-percentage 100  //aof文件大小比起上次重写时的大小,增长率100%时,重写
+auto-aof-rewrite-min-size 64mb //aof文件,至少超过64M时,重写
+</code></pre></div></div>
+
+<p>重写：内存中有N多数据，是NNN次语句得到的，为了节省日志文件空间，将内存数据转化为直接优化过的语句，不是以前的（详细）操作步骤，但是达到的“数据”效果是一样的。 aof 的方式也同时带来了另一个问题。持久化文件会变的越来越大。例如我们调用incr test命令100次，文件中必须保存全部的100条命令，其实有99条都是多余的。因为要恢复数据库的状态其实文件中保存一条set test 100就够了。为了压缩aof的持久化文件。redis提供了 bgrewriteaof 命令。收到此命令redis将使用与快照类似的方式将内存中的数据 以命令的方式保存到临时文件中，最后替换原来的文件。aof 过程：</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.redis调用fork ，现在有父子两个进程
+
+2.子进程根据内存中的数据库快照，往临时文件中写入重建数据库状态的命令
+
+3.父进程继续处理client请求，除了把写命令写入到原来的aof文件中。同时把收到的写命令缓存起来。这样就能保证如果子进程重写失败的话并不会出问题。
+
+4.当子进程把快照内容写入已命令方式写到临时文件中后，子进程发信号通知父进程。然后父进程把缓存的写命令也写入到临时文件。
+
+5.现在父进程可以使用临时文件替换老的aof文件，并重命名，后面收到的写命令也开始往新的aof文件中追加。
+
+需要注意到是重写aof文件的操作，并没有读取旧的aof文件，而是将整个内存中的数据库内容用命令的方式重写了一个新的aof文件,这点和快照有点类似。
+</code></pre></div></div>
+
+<p>注意：</p>
+
+<ul>
+  <li>
+    <p>aof和rdb同时存在的时候，有限使用aof恢复数据；</p>
+  </li>
+  <li>
+    <p>aof和rdb恢复的时候，谁快，rdb快，直接拷贝数据，aof还要执行语句；</p>
+  </li>
+  <li>
+    <p>建议同时使用aof 和 rdb</p>
+  </li>
+  <li>
+    <p>aof 文件 和 rdb文件 在下次redis启动的时候会执行或载入，达到备份的目的。</p>
+  </li>
+</ul>
+
+<h2 id="save">SAVE</h2>
+<p>Redis SAVE命令用来创建备份当前Redis数据库。</p>
+
+<h3 id="备份-save">备份 SAVE</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1:6379&gt; SAVE
+
+OK
+</code></pre></div></div>
+
+          </article>
+          <hr class="boundary">
+        </div>
+
+        <div class="pad-min"></div>
+        <div id="post-comment" class="sheet post">
+            <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="/2016-09-27/Redis-backup/" ></div>
+
+<script type="text/javascript">
+(function(){
+var appid = "cysX5sziD";
+var conf = "prod_45285c7173354294675fbce39f863858";
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </div>
+
+    </div>
+
+    <div class="content-navigation col-lg-3">
+      <div class="shadow-bottom-center" >
+        <div class="content-navigation-toc">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Toc
+            </div>
+            <div class="content-navigation-list toc"></div>
+        </div>
+        <div class="content-navigation-tag">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Tags
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#redis"><span class="octicon octicon-tag"></span>&nbsp;redis</a>
+                    </li>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#backup"><span class="octicon octicon-tag"></span>&nbsp;backup</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-navigation-related">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Related
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+
+                    
+
+                    
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-09-27/Redis-log-read/">Redis 日志调试</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-09-27/Rails-Redis-cache-clear/">Rails项目中Redis 清除缓存</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-08-11/Redis-configure/">Redis 安装及配置 sockets 连接</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2015-11-26/Backup-Mysql/">本地定时备份mysql数据库脚本</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
+
+    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
+        <a href="javascript:void(0);">
+            <div class="arrow"></div>
+            <div class="stick"></div>
+        </a>
+    </div>
+</div>
+
+<footer  class="footnote footnote-tiffany">
+	<div class="container">
+		<div class="summary">
+			总访问<span id="busuanzi_value_site_pv"></span>次，访客<span id="busuanzi_value_site_uv"></span>人次，本页总阅读<span id="busuanzi_value_page_pv"></span>次
+		</div>
+		</line>
+		<a class="foot-item" href="mailto:cxhyun@126.com" target="_blank"><span class="octicon octicon-mail"></span></a>
+		<a class="foot-item" href="https://github.com/cheenwe" target="_blank"><span class="octicon octicon-mark-github"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/feed.xml" target="_blank"><span class="octicon octicon-rss"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/link/"><span class="octicon octicon-link-external"></span></a>
+		&nbsp;
+		<a href="http://0.0.0.0:4000/about/"><span class="word-keep">&copy;Cheenwe</span></a>
+		<a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备16011691号</a>
+
+	</div>
+</footer>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/static/js/lunr.min.js"></script>
+<script src="/static/js/search.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/script.js"></script>
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/post.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/toc.js"></script>
+
+
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?53d63f40f6eef2f51c5cf14443efe386";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

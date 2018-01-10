@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ubuntu 源码安装 Jitsi Meet</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="Ubuntu 源码安装 Jitsi Meet, java, java,sdk, Cheenwe" />
+    <meta name="description" content="Ubuntu 源码安装 Jitsi Meet, java, java,sdk, Ubuntu 源码安装 Jitsi Meet" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://0.0.0.0:4000/favicon.ico" />
+    <link rel="canonical" href="http://0.0.0.0:4000/2016-04-29/Ubuntu-Install-JitsiMeet/" />
+    <link rel="alternate" type="application/rss+xml" title="Cheenwe" href="http://0.0.0.0:4000/feed.xml"  />
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/octicons/3.5.0/octicons.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/post.css" />
+    
+</head>
+
+
+<body>
+<div class="main">
+
+  
+  
+  <header>
+    <nav class="navbar navbar-tiffany rectangle" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://0.0.0.0:4000/">Cheenwe</a>
+          <p class="navbar-text">A Ruby Coder</p>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li>
+            <a href="http://0.0.0.0:4000/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
+            </li>
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/archive/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Archive</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/category/" class="word-keep"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;Category</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/tags/" class="word-keep"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;Tag</a>
+            </li>
+            
+            
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/project/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Project</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+<li>
+
+  <a href="#stq=" class="search-button" data-toggle="modal" data-target="#myModal"><span class="octicon octicon-search">&nbsp;&nbsp; Search</span></a>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form action="get" id="site_search">
+            <input type="text" id="search_box" placeholder="Search">
+            <button class="btn btn-default" type="submit"><span class="octicon octicon-search"></span></button>
+          </form>
+        </div>
+        <div class="modal-body">
+          <ul id="search_results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+    <div class="container">
+        <div class="row">
+    <div class="content col-lg-9">
+        <div class="sheet post">
+          <header>
+            <h2>Ubuntu 源码安装 Jitsi Meet</h2>
+            <p class="post-meta">
+                <span class="octicon octicon-clock"></span> Apr 29, 2016
+            </p>
+            <p class="post-tag">
+                <span><a href="http://0.0.0.0:4000/category/#java"><span class="octicon octicon-list-unordered"></span>&nbsp;java</a></span>
+                <span>
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#java"><span class="octicon octicon-tag"></span>&nbsp;java</a>
+                    
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#sdk"><span class="octicon octicon-tag"></span>&nbsp;sdk</a>
+                    
+                </span>
+            </p>
+          </header>
+          <hr class="boundary">
+          <article>
+            <h1 id="ubuntu-源码安装-jitsi-meet">Ubuntu 源码安装 Jitsi Meet</h1>
+
+<p>This describes configuring a server 182.61.25.227( jitsi.example.com) running Debian or a Debian Derivative. You will need to change references to that to match your host, and generate some passwords for  <code class="highlighter-rouge">videobridge_password</code>, <code class="highlighter-rouge">jicofo_password</code>, <code class="highlighter-rouge">auth_password</code> .</p>
+
+<p>There are also some complete <a href="https://github.com/jitsi/jitsi-meet/tree/master/doc/example-config-files/">example config files</a> available, mentioned in each section.</p>
+
+<h2 id="install-prosody">Install prosody</h2>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">echo deb http://packages.prosody.im/debian $</span><span class="o">(</span>lsb_release <span class="nt">-sc</span><span class="o">)</span> main | <span class="nb">sudo tee</span> <span class="nt">-a</span> /etc/apt/sources.list
+<span class="go">wget https://prosody.im/files/prosody-debian-packages.key -O- | sudo apt-key add -
+sudo apt-get update
+
+sudo apt-get install prosody unzip git
+</span></code></pre></div></div>
+
+<h2 id="configure-prosody">Configure prosody</h2>
+<p>Add config file in <code class="highlighter-rouge">/etc/prosody/conf.avail/182.61.25.227.cfg.lua</code> :</p>
+
+<ul>
+  <li>add your domain virtual host section:</li>
+</ul>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">VirtualHost "182.61.25.227"
+    authentication = "anonymous"
+    ssl = {
+</span><span class="gp">        key = "/var/lib/prosody/182.61.25.227.key";</span>
+<span class="gp">        certificate = "/var/lib/prosody/182.61.25.227.crt";</span>
+<span class="go">    }
+    modules_enabled = {
+</span><span class="gp">        "bosh";</span>
+<span class="gp">        "pubsub";</span>
+<span class="go">    }
+VirtualHost "auth.182.61.25.227"
+    authentication = "internal_plain"
+admins = { "focus@auth.182.61.25.227" }
+
+Component "conference.182.61.25.227" "muc"
+Component "jitsi-videobridge.182.61.25.227"
+    component_secret = "videobridge_password"
+Component "focus.182.61.25.227"
+    component_secret = "jicofo_password"
+</span></code></pre></div></div>
+
+<p>Add link for the added configuration</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">ln -s /etc/prosody/conf.avail/182.61.25.227.cfg.lua /etc/prosody/conf.d/182.61.25.227.cfg.lua
+</span></code></pre></div></div>
+
+<p>Generate certs for the domain:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">prosodyctl cert generate 182.61.25.227
+</span></code></pre></div></div>
+
+<p>Create conference focus user:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">prosodyctl register focus auth.182.61.25.227 auth_password
+</span></code></pre></div></div>
+
+<p>Restart prosody XMPP server with the new config</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">prosodyctl restart
+</span></code></pre></div></div>
+
+<h2 id="install-nginx">Install nginx</h2>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo apt-get install nginx
+</span></code></pre></div></div>
+
+<p>Add a new file <code class="highlighter-rouge">182.61.25.227</code> in <code class="highlighter-rouge">/etc/nginx/sites-available</code> (see also the example config file):</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # nano /etc/nginx/sites-available182.61.25.227
+server_names_hash_bucket_size 64;
+
+server {
+    listen 80;
+    server_name 182.61.25.227;
+    # set the root
+    root /srv/182.61.25.227;
+    index index.html;
+    location ~ ^/([a-zA-Z0-9=\?]+)$ {
+        rewrite ^/(.*)$ / break;
+    }
+    location / {
+        ssi on;
+    }
+    # BOSH
+    location /http-bind {
+        proxy_pass      http://localhost:5280/http-bind;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $http_host;
+    }
+}
+</code></pre></div></div>
+
+<p>Add link for the added configuration</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">cd /etc/nginx/sites-enabled
+ln -s ../sites-available/182.61.25.227 182.61.25.227
+</span></code></pre></div></div>
+
+<h2 id="install-jitsi-videobridge">Install Jitsi Videobridge</h2>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">wget https://download.jitsi.org/jitsi-videobridge/linux/jitsi-videobridge-linux-x64-725.zip
+unzip jitsi-videobridge-linux-x64-725.zip
+</span></code></pre></div></div>
+
+<p>Install Oracle JDK if missing:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo apt-get install -y python-software-properties  software-properties-common
+
+sudo add-apt-repository ppa:webupd8team/java
+
+sudo apt-get update
+
+sudo apt-get install oracle-java7-installer
+
+</span><span class="gp">echo 'export JAVA_HOME=/usr/lib/jvm/java-7-oracle' &gt;</span><span class="o">&gt;</span> /etc/profile
+<span class="gp">echo 'export JRE_HOME=$</span><span class="o">{</span>JAVA_HOME<span class="o">}</span>/jre<span class="s1">' &gt;&gt; /etc/profile
+</span><span class="gp">echo 'export CLASSPATH=.:$</span><span class="s1">{JAVA_HOME}/lib:${JRE_HOME}/lib'</span> <span class="o">&gt;&gt;</span> /etc/profile
+<span class="gp">echo 'export PATH=$</span><span class="o">{</span>JAVA_HOME<span class="o">}</span>/bin:<span class="nv">$PATH</span><span class="s1">' &gt;&gt; /etc/profile
+</span><span class="go">
+update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-7-oracle/bin/java 300
+update-alternatives --config java
+</span></code></pre></div></div>
+
+<p><em>NOTE: When installing on older Debian releases keep in mind that you need JRE &gt;= 1.7.</em></p>
+
+<p>In the user home that will be starting Jitsi Videobridge create <code class="highlighter-rouge">.sip-communicator</code> folder and add the file <code class="highlighter-rouge">sip-communicator.properties</code> with one line in it:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>org.jitsi.impl.neomedia.transform.srtp.SRTPCryptoContext.checkReplay=false
+</code></pre></div></div>
+
+<p>Start the videobridge with:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">./jvb.sh --host=localhost --domain=182.61.25.227 --port=5347 --secret=videobridge_password &amp;
+</span></code></pre></div></div>
+<p>Or autostart it by adding the line in <code class="highlighter-rouge">/etc/rc.local</code>:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">/bin/bash /root/jitsi-videobridge-linux-x64-725/jvb.sh --host=localhost --domain=182.61.25.227 --port=5347 --secret=videobridge_password &lt;/dev/null &gt;</span><span class="o">&gt;</span> /var/log/jvb.log 2&gt;&amp;1
+</code></pre></div></div>
+
+<h2 id="install-jitsi-conference-focus-jicofo">Install Jitsi Conference Focus (jicofo)</h2>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo apt-get install maven
+</span></code></pre></div></div>
+
+<p>Clone source from Github repo:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">git clone https://github.com/jitsi/jicofo.git
+</span></code></pre></div></div>
+<p>Build distribution packag</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">mvn -U package -DskipTests -Dassembly.skipAssembly=false
+</span></code></pre></div></div>
+
+<p>Run jicofo:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">cd target
+unzip jicofo-linux-x64-1.0-SNAPSHOT.zip
+./jicofo-linux-x64-1.0-SNAPSHOT/jicofo.sh --domain=182.61.25.227 --secret=jicofo_password --user_domain=auth.182.61.25.227 --user_name=focus --user_password=auth_password
+</span></code></pre></div></div>
+
+<h2 id="deploy-jitsi-meet">Deploy Jitsi Meet</h2>
+<p>Checkout and configure Jitsi Meet:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">cd /srv
+git clone https://github.com/jitsi/jitsi-meet.git
+mv jitsi-meet/ 182.61.25.227
+nano package.json
+</span><span class="gp">&gt;</span>change     <span class="s2">"lib-jitsi-meet"</span>: <span class="s2">"jitsi/lib-jitsi-meet"</span>,
+<span class="go">
+"lib-jitsi-meet": "git://github.com/jitsi/lib-jitsi-meet",
+
+</span></code></pre></div></div>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">sudo apt-get install npm nodejs-legacy
+cd 182.61.25.227
+npm install browserify
+npm install
+
+</span></code></pre></div></div>
+<p>Install lib-jitsi-meet</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">git clone git://github.com/jitsi/lib-jitsi-meet ../lib-jitsi-meet
+cd lib-jitsi-meet
+</span><span class="gp"> #</span>nano package.json
+<span class="gp"> #</span>change <span class="s2">"jitsi-meet-logger"</span>: ...
+<span class="go">
+</span><span class="gp">&gt;</span><span class="s2">"jitsi-meet-logger"</span>: <span class="s2">"git://github.com/jitsi/jitsi-meet-logger"</span>,
+<span class="go">
+npm link
+
+cd ../182.61.25.227
+npm link lib-jitsi-meet
+
+</span></code></pre></div></div>
+
+<p>To build the Jitsi Meet application, just type</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">make
+</span></code></pre></div></div>
+
+<p>Edit host names in <code class="highlighter-rouge">/srv/182.61.25.227/config.js</code> (see also the example config file):</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">var config = {
+    hosts: {
+        domain: '182.61.25.227',
+        muc: 'conference.182.61.25.227',
+        bridge: 'jitsi-videobridge.182.61.25.227'
+    },
+    useNicks: false,
+    bosh: '//182.61.25.227/http-bind', // FIXME: use xep-0156 for that
+    desktopSharing: 'false' // Desktop sharing method. Can be set to 'ext', 'webrtc' or false to disable.
+    //chromeExtensionId: 'diibjkoicjeejcmhdnailmkgecihlobk', // Id of desktop streamer Chrome extension
+    //minChromeExtVersion: '0.1' // Required version of Chrome extension
+</span><span class="gp">};</span>
+</code></pre></div></div>
+
+<p>Restart nginx to get the new configuration:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">invoke-rc.d nginx restart
+</span></code></pre></div></div>
+
+<h2 id="running-behind-nat">Running behind NAT</h2>
+<p>Jitsi-Videobridge can run behind a NAT, provided that all required ports are routed (forwarded) to the machine that it runs on. By default these ports are (TCP/443 or TCP/4443 and UDP 10000-20000).</p>
+
+<p>The following extra lines need to be added the file <code class="highlighter-rouge">~/.sip-communicator/sip-communicator.properties</code> (in the home directory of the user running the videobridge):</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">org.jitsi.videobridge.NAT_HARVESTER_LOCAL_ADDRESS=127.0.0.1
+org.jitsi.videobridge.NAT_HARVESTER_PUBLIC_ADDRESS=182.61.25.227
+</span></code></pre></div></div>
+
+<p>So the file should look like this at the end:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">org.jitsi.impl.neomedia.transform.srtp.SRTPCryptoContext.checkReplay=false
+org.jitsi.videobridge.NAT_HARVESTER_LOCAL_ADDRESS=127.0.0.1
+org.jitsi.videobridge.NAT_HARVESTER_PUBLIC_ADDRESS=182.61.25.227
+</span></code></pre></div></div>
+
+<h2 id="hold-your-first-conference">Hold your first conference</h2>
+<p>You are now all set and ready to have your first meet by going to http://182.61.25.227</p>
+
+<h2 id="enabling-recording">Enabling recording</h2>
+<p>Currently recording is only supported for linux-64 and macos. To enable it, add
+the following properties to sip-communicator.properties:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">org.jitsi.videobridge.ENABLE_MEDIA_RECORDING=true
+org.jitsi.videobridge.MEDIA_RECORDING_PATH=/path/to/recordings/dir
+org.jitsi.videobridge.MEDIA_RECORDING_TOKEN=secret
+</span></code></pre></div></div>
+
+<p>where /path/to/recordings/dir is the path to a pre-existing directory where recordings
+will be stored (needs to be writeable by the user running jitsi-videobridge),
+and “secret” is a string which will be used for authentication.</p>
+
+<p>Then, edit the Jitsi-Meet config.js file and set:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">enableRecording: true
+</span></code></pre></div></div>
+
+<p>Restart jitsi-videobridge and start a new conference (making sure that the page
+is reloaded with the new config.js) – the organizer of the conference should
+now have a “recording” button in the floating menu, near the “mute” button.</p>
+
+          </article>
+          <hr class="boundary">
+        </div>
+
+        <div class="pad-min"></div>
+        <div id="post-comment" class="sheet post">
+            <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="/2016-04-29/Ubuntu-Install-JitsiMeet/" ></div>
+
+<script type="text/javascript">
+(function(){
+var appid = "cysX5sziD";
+var conf = "prod_45285c7173354294675fbce39f863858";
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </div>
+
+    </div>
+
+    <div class="content-navigation col-lg-3">
+      <div class="shadow-bottom-center" >
+        <div class="content-navigation-toc">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Toc
+            </div>
+            <div class="content-navigation-list toc"></div>
+        </div>
+        <div class="content-navigation-tag">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Tags
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#java"><span class="octicon octicon-tag"></span>&nbsp;java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#sdk"><span class="octicon octicon-tag"></span>&nbsp;sdk</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-navigation-related">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Related
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+
+                    
+
+                    
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-04-28/Ubuntu-Install-OracleJDK/">Ubuntu 下安装 Oracle JDK</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
+
+    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
+        <a href="javascript:void(0);">
+            <div class="arrow"></div>
+            <div class="stick"></div>
+        </a>
+    </div>
+</div>
+
+<footer  class="footnote footnote-tiffany">
+	<div class="container">
+		<div class="summary">
+			总访问<span id="busuanzi_value_site_pv"></span>次，访客<span id="busuanzi_value_site_uv"></span>人次，本页总阅读<span id="busuanzi_value_page_pv"></span>次
+		</div>
+		</line>
+		<a class="foot-item" href="mailto:cxhyun@126.com" target="_blank"><span class="octicon octicon-mail"></span></a>
+		<a class="foot-item" href="https://github.com/cheenwe" target="_blank"><span class="octicon octicon-mark-github"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/feed.xml" target="_blank"><span class="octicon octicon-rss"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/link/"><span class="octicon octicon-link-external"></span></a>
+		&nbsp;
+		<a href="http://0.0.0.0:4000/about/"><span class="word-keep">&copy;Cheenwe</span></a>
+		<a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备16011691号</a>
+
+	</div>
+</footer>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/static/js/lunr.min.js"></script>
+<script src="/static/js/search.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/script.js"></script>
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/post.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/toc.js"></script>
+
+
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?53d63f40f6eef2f51c5cf14443efe386";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

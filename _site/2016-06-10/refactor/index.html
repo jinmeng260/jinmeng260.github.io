@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>代码重构</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="代码重构, coding, coding, Cheenwe" />
+    <meta name="description" content="代码重构, coding, coding, 重构" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://0.0.0.0:4000/favicon.ico" />
+    <link rel="canonical" href="http://0.0.0.0:4000/2016-06-10/refactor/" />
+    <link rel="alternate" type="application/rss+xml" title="Cheenwe" href="http://0.0.0.0:4000/feed.xml"  />
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/octicons/3.5.0/octicons.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/post.css" />
+    
+</head>
+
+
+<body>
+<div class="main">
+
+  
+  
+  <header>
+    <nav class="navbar navbar-tiffany rectangle" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://0.0.0.0:4000/">Cheenwe</a>
+          <p class="navbar-text">A Ruby Coder</p>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li>
+            <a href="http://0.0.0.0:4000/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
+            </li>
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/archive/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Archive</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/category/" class="word-keep"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;Category</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/tags/" class="word-keep"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;Tag</a>
+            </li>
+            
+            
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/project/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Project</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+<li>
+
+  <a href="#stq=" class="search-button" data-toggle="modal" data-target="#myModal"><span class="octicon octicon-search">&nbsp;&nbsp; Search</span></a>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form action="get" id="site_search">
+            <input type="text" id="search_box" placeholder="Search">
+            <button class="btn btn-default" type="submit"><span class="octicon octicon-search"></span></button>
+          </form>
+        </div>
+        <div class="modal-body">
+          <ul id="search_results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+    <div class="container">
+        <div class="row">
+    <div class="content col-lg-9">
+        <div class="sheet post">
+          <header>
+            <h2>代码重构</h2>
+            <p class="post-meta">
+                <span class="octicon octicon-clock"></span> Jun 10, 2016
+            </p>
+            <p class="post-tag">
+                <span><a href="http://0.0.0.0:4000/category/#coding"><span class="octicon octicon-list-unordered"></span>&nbsp;coding</a></span>
+                <span>
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#coding"><span class="octicon octicon-tag"></span>&nbsp;coding</a>
+                    
+                </span>
+            </p>
+          </header>
+          <hr class="boundary">
+          <article>
+            <h1 id="重构">重构</h1>
+
+<h2 id="为什么要重构">为什么要重构？</h2>
+<p>好的软件除了满足功能需求之外，还应从长期维护的角度来考虑可读性、可扩展性等。没有明显问题，不代表明显没有问题。
+然而，随着时间的推移，任何原本设计良好的代码都必然会逐渐腐坏，产生各种代码坏味道，变得难以理解，难以维护，缺陷频出。
+随着代码质量下降，问题越来越多，程序员压力也越来越大，而士气也会受到影响，甚至原本的设计队伍都不在了。因而当需要修改bug或添加新需求时，人们更倾向于采用快速的打补丁方式来维护本已不堪的代码，致使代码质量进一步下降，从而造成更多的代码坏味道(Code Smell)，形成恶性循环。
+采用重构以后，可以有助于改善软件设计，使软件更加容易理解，发现潜在缺陷，从而使未来的编码更加快速。</p>
+
+<h2 id="什么是重构">什么是重构?</h2>
+<p>重构是指在保持程序的全部功能的基础上重新组织代码结构，以更好地适应将来的变化。重构的类型有很多，如更改类名，改变方法名，或者提取代码到方法中。每一次重构，都要执行一系列的步骤，这些步骤要保证代码和原代码相一致。</p>
+
+<h2 id="如何重构">如何重构？</h2>
+<p>在重构时，测试是十分重要的。因为重构改变了代码的结构，你要保证重构后代码的功能没有被改变。手工重构时，很容易在代码中引入错误，例如拼写错误或者漏掉了重构的某一步。为了防止引入错误，在每次重构前后，都要执行充分的测试。
+如果使用自动重构工具，测试也是有必要的，但不需要很频繁，因为自动重构工具不会产生手工重构时的那些错误，如拼写错误。
+为某些元素进行重构的前提是你必须选中他们。你可以在多个视图中选择这些元素，像大纲视图或包浏览视图。可以按住Ctrl或Shift键，在视图中选择多个 元素。另外一种选择的方法是使该元素的编辑区高亮显示，或者把鼠标定位到源程序文件。在选中希望重构的元素后，可以从重构菜单的下拉项选择重构，也可以从右键单击后弹出菜单中选择重构子菜单。同时，各个IDE也都提供了重构的快捷键操作。
+某些重构可以应用在任意元素上，有些则只能用在特定类型的元素上，如类或方法。</p>
+
+<p>6个可以用来帮助你解决80%（80-20原则）的代码质量问题的重构方法，并能帮助你成为一个更优秀的开发者。</p>
+
+<ul>
+  <li>
+    <p>提取类/抽离方法：正如上面提到的，像“臃肿的类”（一个类提供了本该有几个类提供的功能）这种代码异味应该将原有类中的方法和属性移动到适当数目的新类中去。旧类中对应新类的方法和属性应该被移除。另外，有时候一些类过于臃肿是因为它包含了被其他类使用本应该是其他类的成员方法的成员方法。这些方法也应该被迁移到合适的类中。</p>
+  </li>
+  <li>
+    <p>提取方法：像上面提到的“过长的方法”这种代码异味可以通过从旧方法中提取代码到一个或多个新方法中消除。</p>
+  </li>
+  <li>
+    <p>分离条件：许多时候，一个方法很长是因为包含好几个分支语句（if-else）。这些分支条件可以被提取和移动到几个单独的方法中。这确实能大大改善代码可读性和可理解性。</p>
+  </li>
+  <li>
+    <p>引入参数对象/保留全局对象：在我做代码审查时发现另外一个很常见的情况 - 好几个参数被传入方法。问题主要与需要从已有方法中增加或者移除一个方法参数有关。在这种场景，建议将相关方法参数组成一个对象（引入参数对象），让方法传递这些对象而不是每个单独的参数。</p>
+  </li>
+  <li>
+    <p>用符号常量替换魔法数字：对于有意义的并且到处被使用的字面常量，应该为它们分配一个命名常量。这能大大增强代码可读性和可理解性。</p>
+  </li>
+  <li>
+    <p>重命名方法：正如上面提到的，模糊不清的方法名会影响代码的可使用性。这些模糊不清的名称应该重命名为有意义的可能与业务术语有关的名称，来帮助开发者通过业务上下文更好地理解代码。这很需要技巧并且要求开发者与业务专家一起协作来理清代码需要满足的业务需求。有趣的是，这种重构方法看起来似乎非常容易理解，但是常常被许多开发者忽视，虽然在Eclipse这种IDE的refactor菜单项中经常出现这一项。</p>
+  </li>
+</ul>
+
+          </article>
+          <hr class="boundary">
+        </div>
+
+        <div class="pad-min"></div>
+        <div id="post-comment" class="sheet post">
+            <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="/2016-06-10/refactor/" ></div>
+
+<script type="text/javascript">
+(function(){
+var appid = "cysX5sziD";
+var conf = "prod_45285c7173354294675fbce39f863858";
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </div>
+
+    </div>
+
+    <div class="content-navigation col-lg-3">
+      <div class="shadow-bottom-center" >
+        <div class="content-navigation-toc">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Toc
+            </div>
+            <div class="content-navigation-list toc"></div>
+        </div>
+        <div class="content-navigation-tag">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Tags
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#coding"><span class="octicon octicon-tag"></span>&nbsp;coding</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-navigation-related">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Related
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+
+                    
+
+                    
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-07-10/code-review/">深入理解代码评审</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-07-04/how-to-build-quality-code/">如何构建优质代码</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
+
+    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
+        <a href="javascript:void(0);">
+            <div class="arrow"></div>
+            <div class="stick"></div>
+        </a>
+    </div>
+</div>
+
+<footer  class="footnote footnote-tiffany">
+	<div class="container">
+		<div class="summary">
+			总访问<span id="busuanzi_value_site_pv"></span>次，访客<span id="busuanzi_value_site_uv"></span>人次，本页总阅读<span id="busuanzi_value_page_pv"></span>次
+		</div>
+		</line>
+		<a class="foot-item" href="mailto:cxhyun@126.com" target="_blank"><span class="octicon octicon-mail"></span></a>
+		<a class="foot-item" href="https://github.com/cheenwe" target="_blank"><span class="octicon octicon-mark-github"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/feed.xml" target="_blank"><span class="octicon octicon-rss"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/link/"><span class="octicon octicon-link-external"></span></a>
+		&nbsp;
+		<a href="http://0.0.0.0:4000/about/"><span class="word-keep">&copy;Cheenwe</span></a>
+		<a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备16011691号</a>
+
+	</div>
+</footer>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/static/js/lunr.min.js"></script>
+<script src="/static/js/search.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/script.js"></script>
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/post.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/toc.js"></script>
+
+
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?53d63f40f6eef2f51c5cf14443efe386";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

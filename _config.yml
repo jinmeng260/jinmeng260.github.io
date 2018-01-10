@@ -1,0 +1,41 @@
+permalink: /:year-:month-:day/:title/
+
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input:  GFM
+  syntax_highlighter: rouge
+
+
+paginate: 10
+paginate_path: ":num"
+baseurl: ""
+
+title: "Cheenwe"
+email: "cxhyun@126.com"
+description: "A Ruby Coder"
+beian: "豫ICP备16011691号"
+github_username:  "cheenwe"
+swiftype_searchId: "9TDAXeK2smEEtWndRZJB"
+duoshuo_shortname: "cheenwe"
+baidu_tongji_id: "53d63f40f6eef2f51c5cf14443efe386"
+
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      styles : [highlight.css,post.css]
+      scripts : [post.js, toc.js]
+
+
+
+url: "https://cheenwe.github.io"
+imgrepo: "https://cheenwe.github.io/static/img"
+
+# url: "http://127.0.0.1:4000"
+# imgrepo: "http://127.0.0.1:4000/static/img"
+

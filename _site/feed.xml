@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cheenwe</title>
+    <description>A Ruby Coder</description>
+    <link>http://0.0.0.0:4000/</link>
+    <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 10 Jan 2018 20:07:44 +0800</pubDate>
+    <lastBuildDate>Wed, 10 Jan 2018 20:07:44 +0800</lastBuildDate>
+    <generator>Jekyll v3.7.0</generator>
+    
+      <item>
+        <title>Ruby With Selenium</title>
+        <description>&lt;p&gt;Selenium 是什么？一句话，自动化测试工具。它支持各种浏览器，包括 Chrome，Safari，Firefox 等主流界面式浏览器，如果你在这些浏览器里面安装一个 Selenium 的插件，那么便可以方便地实现Web界面的测试。&lt;/p&gt;
+
+&lt;h2 id=&quot;安装ruby版本的selenium&quot;&gt;安装ruby版本的selenium&lt;/h2&gt;
+
+&lt;p&gt;gem install selenium-webdriver&lt;/p&gt;
+
+&lt;h2 id=&quot;安装selenium浏览器驱动driver&quot;&gt;安装selenium浏览器驱动driver&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Chrome:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;https://sites.google.com/a/chromium.org/chromedriver/downloads&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Firefox:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;https://github.com/mozilla/geckodriver/releases&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'selenium-webdriver'&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# dr = Selenium::WebDriver.for :chrome&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Selenium&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;WebDriver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:chrome&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# driver = Selenium::WebDriver.for :firefox&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# WebDriver driver = new RemoteWebDriver(&quot;http://localhost:9515&quot;, DesiredCapabilities.chrome());&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://www.sse.com.cn/home/search/?webswd=%E8%B4%A2%E5%8A%A1%E6%8A%A5%E8%A1%A8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;html_source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;page_source&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;sse_query_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;click&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# driver.click 'id=&quot;Next&quot;'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sse_query_list&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# dr.get &quot;http://www.sse.com.cn/home/search/?webswd=%E8%B4%A2%E5%8A%A1%E6%8A%A5%E8%A1%A8&quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 使用navigate方法，然后再调用to方法&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# dr.navigate.to url&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# #隐形设置等待时间&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# driver.manage.timeouts.implicit_wait =60&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# #最大化浏览器&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# driver.manage.window.maximize&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# #设置浏览器的宽、长&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# #driver.manage.window.resize_to(600,400)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# #具体的url&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# @url=&quot;http://www.baidu.com/&quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# #打开具体的URL&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# driver.get @url&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# #查找id为kw的元素，并清空值&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# driver.find_element(:id,&quot;kw&quot;).clear&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# #根据CSS查找id为kw的元素并赋值为杨丹霞&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# driver.find_element(:css,&quot;#kw&quot;).send_key(&quot;杨丹霞&quot;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# driver.find_element(:id,&quot;su&quot;).click&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# print driver.current_url&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# #返回（后退）到百度首页&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# driver.navigate.back&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# sleep(2)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# #前进到搜索杨丹霞的页面&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# driver.navigate.forward&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Fri, 22 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://0.0.0.0:4000/2017-12-22/Ruby-Selenium/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017-12-22/Ruby-Selenium/</guid>
+        
+        <category>ruby</category>
+        
+        <category>test</category>
+        
+        
+        <category>ruby test</category>
+        
+      </item>
+    
+      <item>
+        <title>Ruby 报错记录</title>
+        <description>&lt;h1 id=&quot;记录使用-ruby-脚本过程中报错信息&quot;&gt;记录使用 ruby 脚本过程中报错信息&lt;/h1&gt;
+
+&lt;h2 id=&quot;encodingundefinedconversionerror-xe4-from-ascii-8bit-to-utf-8&quot;&gt;Encoding::UndefinedConversionError: “\xE4” from ASCII-8BIT to UTF-8&lt;/h2&gt;
+&lt;p&gt;文件读写时需要强制转换成 utf-8&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require 'net/http'
+
+url = &quot;https://car.autohome.com.cn/photo/series/30319/12/3865045.html&quot;
+File.open('1.html', &quot;w:UTF-8&quot;) do |f|
+  content = Net::HTTP.get_response(URI.parse(url)).body
+  f.write(content.force_encoding(&quot;UTF-8&quot;))
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Wed, 13 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://0.0.0.0:4000/2017-12-13/Ruby-Errors-Record/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017-12-13/Ruby-Errors-Record/</guid>
+        
+        <category>ruby</category>
+        
+        <category>rails</category>
+        
+        <category>erors</category>
+        
+        
+        <category>ruby rails</category>
+        
+      </item>
+    
+      <item>
+        <title>Mac Install Soft</title>
+        <description>&lt;h1 id=&quot;new-install-mac&quot;&gt;new install mac&lt;/h1&gt;
+
+&lt;h2 id=&quot;install-xcode&quot;&gt;install xcode&lt;/h2&gt;
+&lt;p&gt;then&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;xcode-select —install&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;brew&quot;&gt;brew&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/bin/ruby &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;shell---oh-my-zsh&quot;&gt;shell - oh my zsh&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+chsh &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;which zsh&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+
+sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;”
+
+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;** oh my zsh theme **
+nanotech
+jonathan&lt;/p&gt;
+
+&lt;h2 id=&quot;git&quot;&gt;git&lt;/h2&gt;
+&lt;p&gt;git config –global user.name “cheenwe”
+git config –global user.name “cheenwe@gmail.com”&lt;/p&gt;
+
+&lt;h2 id=&quot;ruby-dev&quot;&gt;ruby dev&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+# 用来编译安装 ruby
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+# 用来管理 gemset, 可选, 因为有 bundler 也没什么必要
+git clone git://github.com/jamis/rbenv-gemset.git  ~/.rbenv/plugins/rbenv-gemset
+# 通过 gem 命令安装完 gem 后无需手动输入 rbenv rehash 命令, 推荐
+git clone git://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+# 通过 rbenv update 命令来更新 rbenv 以及所有插件, 推荐
+git clone git://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
+# 使用 Ruby China 的镜像安装 Ruby, 国内用户推荐
+git clone git://github.com/AndorChen/rbenv-china-mirror.git ~/.rbenv/plugins/rbenv-china-mirror
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;放到 ~/.bashrc 里, zsh用户是 ~/.zshrc&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;
+eval &quot;$(rbenv init -)&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;soft&quot;&gt;soft&lt;/h1&gt;
+
+&lt;h2 id=&quot;定时提醒&quot;&gt;定时提醒&lt;/h2&gt;
+&lt;p&gt;https://difgbq95ss5ww.cloudfront.net/20171104/234696c139e0fbaa4ac42de6be39bd5f29faeb2c/Magican%20Rest.dmg&lt;/p&gt;
+
+&lt;h2 id=&quot;查看快捷键&quot;&gt;查看快捷键&lt;/h2&gt;
+&lt;p&gt;CheatSheet&lt;/p&gt;
+
+&lt;h2 id=&quot;dash&quot;&gt;dash&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;license&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;https://kapeli.com/licenses/Dash/2015/181/A9xyvwUTgNKIjFMPNX3Uh4byRMmZgk/license.dash-license&lt;/p&gt;
+
+&lt;h2 id=&quot;sublimetext-3&quot;&gt;sublimetext 3&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;license
+```
+—– BEGIN LICENSE —–
+TwitterInc
+200 User License
+EA7E-890007
+1D77F72E 390CDD93 4DCBA022 FAF60790
+61AA12C0 A37081C5 D0316412 4584D136
+94D7F7D4 95BC8C1C 527DA828 560BB037
+D1EDDD8C AE7B379F 50C9D69D B35179EF
+2FE898C4 8E4277A8 555CE714 E1FB0E43
+D5D52613 C3D12E98 BC49967F 7652EED2
+9D2D2E61 67610860 6D338B72 5CF95C69
+E36B85CC 84991F19 7575D828 470A92AB
+—— END LICENSE ——&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+- add quick link
+&amp;gt;sudo ln -s &quot;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&quot; /usr/local/bin/subl
+
+- install package control
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;import urllib.request,os,hashlib; h = ‘6f4c264a24d933ce70df5dedcf1dcaee’ + ‘ebe013ee18cced0ef93d5f746d80ef60’; pf = ‘Package Control.sublime-package’; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( ‘http://packagecontrol.io/’ + pf.replace(‘ ‘, ‘%20’)).read(); dh = hashlib.sha256(by).hexdigest(); print(‘Error validating download (got %s instead of %s), please try manual install’ % (dh, h)) if dh != h else open(os.path.join( ipp, pf), ‘wb’ ).write(by)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+
+
+# db
+
+
+## mysql
+&amp;gt; brew install mysql
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;We’ve installed your MySQL database without a root password. To secure it run:
+mysql_secure_installation&lt;/p&gt;
+
+&lt;p&gt;MySQL is configured to only allow connections from localhost by default&lt;/p&gt;
+
+&lt;p&gt;To connect run:
+mysql -uroot&lt;/p&gt;
+
+&lt;p&gt;To have launchd start mysql now and restart at login:
+brew services start mysql
+Or, if you don’t want/need a background service you can just run:
+mysql.server start&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+修改  配置文件允许远程访问, 注释 127.0.0.1
+/usr/local/Cellar/mysql/5.7.20/.bottle/etc/my.cnf
+
+/usr/local/etc/my.cnf
+
+mysql&amp;gt; GRANT ALL PRIVILEGES ON *.* TO root@&quot;%&quot; IDENTIFIED BY &quot;123456&quot;;
+mysql&amp;gt; flush privileges;
+
+远程登录命令：
+mysql -h 223.4.92.130 -uroot -p（-h后跟的是要登录主机的ip地址）
+
+
+## postgresql
+&amp;gt; brew install postgresql
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;To migrate existing data from a previous major version of PostgreSQL, see:
+https://www.postgresql.org/docs/10/static/upgrading.html&lt;/p&gt;
+
+&lt;p&gt;You will need your previous PostgreSQL installation from brew to perform
+&lt;code class=&quot;highlighter-rouge&quot;&gt;pg_upgrade&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;pg_dumpall&lt;/code&gt; depending on your upgrade method.&lt;/p&gt;
+
+&lt;p&gt;Do not run &lt;code class=&quot;highlighter-rouge&quot;&gt;brew cleanup postgresql&lt;/code&gt; until you have performed the migration.&lt;/p&gt;
+
+&lt;p&gt;To have launchd start postgresql now and restart at login:
+brew services start postgresql
+Or, if you don’t want/need a background service you can just run:
+pg_ctl -D /usr/local/var/postgres start&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+## mongodb
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+
+
+&amp;gt; brew install mongodb
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;To have launchd start mongodb now and restart at login:
+brew services start mongodb
+Or, if you don’t want/need a background service you can just run:
+mongod –config /usr/local/etc/mongod.conf&lt;/p&gt;
+
+&lt;p&gt;The following example command creates the default /data/db directory:&lt;/p&gt;
+
+&lt;p&gt;mkdir -p /data/db&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+## redis
+&amp;gt; brew install redis
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;To have launchd start redis now and restart at login:
+  brew services start redis
+Or, if you don’t want/need a background service you can just run:
+  redis-server /usr/local/etc/redis.conf&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;h1 id=&quot;language&quot;&gt;Language&lt;/h1&gt;
+
+&lt;h2 id=&quot;go&quot;&gt;go&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;brew install go&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A valid GOPATH is required to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;go get&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;If $GOPATH is not specified, $HOME/go will be used by default:&lt;/p&gt;
+
+&lt;p&gt;https://golang.org/doc/code.html#GOPATH&lt;/p&gt;
+
+&lt;p&gt;You may wish to add the GOROOT-based install location to your PATH:&lt;/p&gt;
+
+&lt;p&gt;export PATH=$PATH:/usr/local/opt/go/libexec/bin&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 01 Dec 2017 00:00:00 +0800</pubDate>
+        <link>http://0.0.0.0:4000/2017-12-01/Mac-Install-Soft/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017-12-01/Mac-Install-Soft/</guid>
+        
+        <category>mac</category>
+        
+        
+        <category>mac</category>
+        
+      </item>
+    
+      <item>
+        <title>AngularJS</title>
+        <description>&lt;h1 id=&quot;angularjs&quot;&gt;AngularJS&lt;/h1&gt;
+
+&lt;h2 id=&quot;date-format&quot;&gt;Date Format&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$scope.date = $filter('date')(new Date(),'yyyy-MM-dd')
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Wed, 29 Nov 2017 00:00:00 +0800</pubDate>
+        <link>http://0.0.0.0:4000/2017-11-29/AngularJS-Learn/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017-11-29/AngularJS-Learn/</guid>
+        
+        <category>angularjs</category>
+        
+        
+        <category>angularjs</category>
+        
+      </item>
+    
+      <item>
+        <title>项目部署整理</title>
+        <description>&lt;p&gt;最近一段忙于在Centos下离线部署Rails应用程序, 闲下来把后续部署流程整理成脚本方便操作.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;更新包以软链接方式链接到指定目录，方便回滚版本&lt;/li&gt;
+  &lt;li&gt;上传文件，单独目录 /file ，方便后续扩容,　部署时链接到部署文件夹&lt;/li&gt;
+  &lt;li&gt;配置文件，全部以 .yum 结尾，放shared 下，更新后链接&lt;/li&gt;
+  &lt;li&gt;自动更新脚本&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;first-deploy&quot;&gt;first deploy&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mkdir -p /file/uploads
+sudo chmod -R 777  /file
+
+
+mkdir -p /home/deploy/project/shared/config
+mkdir -p /home/deploy/project/shared/log
+mkdir -p /home/deploy/project/shared/tmp/pids
+mkdir -p /home/deploy/project/shared/tmp/cache
+
+mkdir  /home/deploy/project/update/
+
+cp /home/deploy/project/web_server/config/config.yml.example /home/deploy/project/shared/config/config.yml
+
+cp /home/deploy/project/web_server/config/database.yml.example /home/deploy/project/shared/config/database.yml
+
+cp /home/deploy/project/web_server/config/nginx.yml.example /home/deploy/project/shared/config/nginx.yml
+
+cp /home/deploy/project/web_server/config/puma.yml.example /home/deploy/project/shared/config/puma.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;更新&quot;&gt;更新&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+##修改版本号码
+update_pkg_name=V0.1.111417
+
+#项目名
+project_name=bank
+
+##下载文件
+wget http://192.168.100.229/xxx/repository/archive.tar.gz?ref=$update_pkg_name -O $update_pkg_name.tar.gz
+#解压
+tar -zxf  $update_pkg_name.tar.gz  -C  /home/deploy/project/update/
+
+mv /home/deploy/project/update/$project_name-$update_pkg_name-* /home/deploy/project/update/$update_pkg_name
+
+cd /home/deploy/project/web_server/bin
+./web stop
+
+ln -s /home/deploy/project/update/$update_pkg_name/ /home/deploy/project/web_server
+
+ln -sf /home/deploy/project/shared/tmp/ /home/deploy/project/web_server/tmp
+ln -sf /home/deploy/project/shared/log/ /home/deploy/project/web_server/log
+
+ln -sf /home/deploy/project/shared/config/config.yml /home/deploy/project/web_server/config/config.yml
+ln -sf /home/deploy/project/shared/config/database.yml /home/deploy/project/web_server/config/database.yml
+ln -sf /home/deploy/project/shared/config/nginx.yml /home/deploy/project/web_server/config/nginx.yml
+ln -sf /home/deploy/project/shared/config/puma.yml /home/deploy/project/web_server/config/puma.yml
+ln -sf /home/deploy/project/shared/config/redis.yml /home/deploy/project/web_server/config/redis.yml
+ln -sf /home/deploy/project/shared/config/secrets.yml /home/deploy/project/web_server/config/secrets.yml
+ln -sf /home/deploy/project/shared/config/config.js /home/deploy/project/web_server/public/config.js
+
+ln -s /file/uploads /home/deploy/project/web_server/public/uploads
+
+
+
+# service restart
+/home/deploy/project/web_server/bin/web start
+
+/home/deploy/project/web_server/bin/web restart
+
+
+# nginx restart
+
+/usr/local/nginx/sbin/nginx
+
+sudo /usr/local/nginx/sbin/nginx -s reload
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 14 Nov 2017 00:00:00 +0800</pubDate>
+        <link>http://0.0.0.0:4000/2017-11-14/project-deploy/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017-11-14/project-deploy/</guid>
+        
+        <category>deploy</category>
+        
+        
+        <category>deploy</category>
+        
+      </item>
+    
+      <item>
+        <title>Rails 离线 Bundle</title>
+        <description>&lt;h1 id=&quot;开启-gem-server&quot;&gt;开启 Gem Server&lt;/h1&gt;
+&lt;p&gt;离线安装GEM是件很麻烦的事情，可以先把项目中用到的全部的包先离线缓存，然后传到服务器上开启Gem server 再进行安装即可．&lt;/p&gt;
+
+&lt;h2 id=&quot;项目中缓存gem&quot;&gt;项目中缓存GEM&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;bundle –local&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;*　会把项目中用到的包全部下载到　vendor/cache/　目录下&lt;/p&gt;
+
+&lt;h2 id=&quot;安装本地gem&quot;&gt;安装本地gem&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;gem install xxx.gem&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;开启本地gem-server&quot;&gt;开启本地Gem Server&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem generate_index -d vendor/cache/
+cd vendor/cache/
+gem server
+#Server started at http://0.0.0.0:8808
+#Server started at http://[::]:8808
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;把项目中 Gemfile 中地址修改为　”http://0.0.0.0:8808”, 即可&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 29 Oct 2017 00:00:00 +0800</pubDate>
+        <link>http://0.0.0.0:4000/2017-10-29/open-local-gem-server/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017-10-29/open-local-gem-server/</guid>
+        
+        <category>rails</category>
+        
+        <category>bundle</category>
+        
+        
+        <category>rails bundle</category>
+        
+      </item>
+    
+      <item>
+        <title>Rails 离线 Bundle</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;bundle package –all&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;将会把所有使用到得 gem 包 放入
+vendor/cache 目录下&lt;/p&gt;
+
+&lt;h2 id=&quot;本地安装gem&quot;&gt;本地安装gem&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle install --local
+
+or
+
+gem install vendor/cache/*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;指定安装&quot;&gt;指定安装&lt;/h2&gt;
+
+&lt;p&gt;gem install vendor/cache/xx.gem&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 25 Oct 2017 00:00:00 +0800</pubDate>
+        <link>http://0.0.0.0:4000/2017-10-25/rails-offline-bundle/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017-10-25/rails-offline-bundle/</guid>
+        
+        <category>rails</category>
+        
+        <category>bundle</category>
+        
+        
+        <category>rails bundle</category>
+        
+      </item>
+    
+      <item>
+        <title>nginx config</title>
+        <description>&lt;h1 id=&quot;nginx-config&quot;&gt;nginx config&lt;/h1&gt;
+
+&lt;h2 id=&quot;open-gzip&quot;&gt;open gzip&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# nano /etc/nginx/nginx.conf 
+
+gzip_vary on;
+gzip_proxied any;
+gzip_comp_level 6;
+gzip_buffers 16 8k;
+gzip_http_version 1.1;
+gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript  image/jpeg image/gif image/png 
+application/octet-stream text/html;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;single-config&quot;&gt;single config&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+server {
+  server_name xxx.cn;
+  listen 80;
+  root /var/www/project/public;
+
+  location ^~ /assets/ {
+    gzip on;
+    expires max;
+    add_header Cache-Control public;
+  }
+
+  try_files $uri/index.html $uri @unicorn;
+  location @unicorn {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://localhost:3001;
+}
+
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 4G;
+  keepalive_timeout 10;
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;http-to-https&quot;&gt;http to https&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+server {
+  listen      http://xxxx.cn;
+  server_name server_name;
+  rewrite     ^   https://$server_name$request_uri? permanent;
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Fri, 20 Oct 2017 00:00:00 +0800</pubDate>
+        <link>http://0.0.0.0:4000/2017-10-20/nginx-config/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017-10-20/nginx-config/</guid>
+        
+        <category>nginx</category>
+        
+        
+        <category>nginx</category>
+        
+      </item>
+    
+      <item>
+        <title>Puma install errors</title>
+        <description>&lt;h1 id=&quot;osx-puma-install-errors&quot;&gt;OSX Puma install errors&lt;/h1&gt;
+
+&lt;p&gt;报错详情&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Building native extensions.  This could take a while...
+ERROR:  Error installing puma:
+	ERROR: Failed to build gem native extension.
+...
+mini_ssl.c:4:10: fatal error: 'openssl/bio.h' file not found
+#include &amp;lt;openssl/bio.h&amp;gt;
+...
+An error occurred while installing puma (2.6.0), and Bundler cannot continue.
+Make sure that `gem install puma -v '2.6.0'` succeeds before bundling.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;解决&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install puma -v '2.6.0' -- --with-cppflags=-I/usr/local/opt/openssl/include
+bundle install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;or  install  libssl-dev&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;sudo apt-get install python-pip python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;2017 10.20&lt;/p&gt;
+</description>
+        <pubDate>Mon, 09 Oct 2017 00:00:00 +0800</pubDate>
+        <link>http://0.0.0.0:4000/2017-10-09/puma-install-errors/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017-10-09/puma-install-errors/</guid>
+        
+        <category>puma</category>
+        
+        
+        <category>gems</category>
+        
+      </item>
+    
+      <item>
+        <title>Rails Send Message To ActiveMQ</title>
+        <description>&lt;p&gt;项目中有 c++ 程序需要写数据库等操作, 为了保证数据的一致性, c++ 程序更新完数据库后需要通知后台 rails web 程序更新数据显示, 使用消息总线 ActiveMQ 作为中间件.&lt;/p&gt;
+
+&lt;h1 id=&quot;使用-rails-同-activemq-通讯&quot;&gt;使用 Rails 同 ActiveMQ 通讯&lt;/h1&gt;
+
+&lt;h2 id=&quot;发送消息&quot;&gt;发送消息&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;gem install stomp&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;gem ‘stomp’ # rails 项目中使用&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;require 'stomp'
+
+def send_mq(host, queue_name, message)
+    @stomp_client = Stomp::Client.new(&quot;&quot;, &quot;&quot;, host, 61613)
+    @stomp_client.publish(&quot;/queue/#{queue_name}&quot;,message)
+end
+
+# 组装 JSON
+data = {
+    &quot;message_type&quot;:&quot;update&quot;,
+    &quot;id&quot;: 1,
+    &quot;action&quot;: &quot;update&quot;
+}.to_json
+
+# 发送消息 传入总线所在 ip , 队列名, 消息内容
+send_mq('192.168.1.1', 'request', data)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;接收消息&quot;&gt;接收消息&lt;/h2&gt;
+
+&lt;h3 id=&quot;添加-gem&quot;&gt;添加 Gem&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;gem ‘activemessaging’, github: ‘ieme/activemessaging’ # for rails 5
+gem ‘daemons’&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;生成配置文件&quot;&gt;生成配置文件&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rails g active_messaging:install
+rails g active_messaging:processor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;添加监听队列&quot;&gt;添加监听队列&lt;/h3&gt;
+
+&lt;p&gt;在 项目目录 app 下创建 自己 的processors&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;my_message_processor.rb&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class MyMessageProcessor &amp;lt; ActiveMessaging::Processor
+  #监听 dete_push
+  subscribes_to :dete_push 
+
+  def on_message(message)
+    logger.debug &quot;MyMessageProcessor received: &quot; + message
+    puts &quot;-----------&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;: #{message}&quot;
+    # Reteryjob.create_record(message)
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;开启服务&quot;&gt;开启服务&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;script/poller  run&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Fri, 15 Sep 2017 00:00:00 +0800</pubDate>
+        <link>http://0.0.0.0:4000/2017-09-15/ruby-send-message-to-activemq/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017-09-15/ruby-send-message-to-activemq/</guid>
+        
+        <category>gem</category>
+        
+        <category>ActiveMQ</category>
+        
+        
+        <category>ruby</category>
+        
+      </item>
+    
+  </channel>
+</rss>

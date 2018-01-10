@@ -1,0 +1,1246 @@
+{
+
+
+"2017-12-22-ruby-selenium": {
+"title": "Ruby With Selenium",
+"url": " /2017-12-22/Ruby-Selenium/",
+"author": "",
+"date": "2017-12-22 00:00:00 +0800",
+"tag": "",
+"category": "ruby test"
+}
+,
+
+
+"2017-12-13-ruby-errors-record": {
+"title": "Ruby 报错记录",
+"url": " /2017-12-13/Ruby-Errors-Record/",
+"author": "",
+"date": "2017-12-13 00:00:00 +0800",
+"tag": "",
+"category": "ruby rails"
+}
+,
+
+
+"2017-12-01-mac-install-soft": {
+"title": "Mac Install Soft",
+"url": " /2017-12-01/Mac-Install-Soft/",
+"author": "",
+"date": "2017-12-01 00:00:00 +0800",
+"tag": "",
+"category": "mac"
+}
+,
+
+
+"2017-11-29-angularjs-learn": {
+"title": "AngularJS",
+"url": " /2017-11-29/AngularJS-Learn/",
+"author": "",
+"date": "2017-11-29 00:00:00 +0800",
+"tag": "",
+"category": "angularjs"
+}
+,
+
+
+"2017-11-14-project-deploy": {
+"title": "项目部署整理",
+"url": " /2017-11-14/project-deploy/",
+"author": "",
+"date": "2017-11-14 00:00:00 +0800",
+"tag": "",
+"category": "deploy"
+}
+,
+
+
+"2017-10-29-open-local-gem-server": {
+"title": "Rails 离线 Bundle",
+"url": " /2017-10-29/open-local-gem-server/",
+"author": "",
+"date": "2017-10-29 00:00:00 +0800",
+"tag": "",
+"category": "rails bundle"
+}
+,
+
+
+"2017-10-25-rails-offline-bundle": {
+"title": "Rails 离线 Bundle",
+"url": " /2017-10-25/rails-offline-bundle/",
+"author": "",
+"date": "2017-10-25 00:00:00 +0800",
+"tag": "",
+"category": "rails bundle"
+}
+,
+
+
+"2017-10-20-nginx-config": {
+"title": "nginx config",
+"url": " /2017-10-20/nginx-config/",
+"author": "",
+"date": "2017-10-20 00:00:00 +0800",
+"tag": "",
+"category": "nginx"
+}
+,
+
+
+"2017-10-09-puma-install-errors": {
+"title": "Puma install errors",
+"url": " /2017-10-09/puma-install-errors/",
+"author": "",
+"date": "2017-10-09 00:00:00 +0800",
+"tag": "",
+"category": "gems"
+}
+,
+
+
+"2017-09-15-ruby-send-message-to-activemq": {
+"title": "Rails Send Message To ActiveMQ",
+"url": " /2017-09-15/ruby-send-message-to-activemq/",
+"author": "",
+"date": "2017-09-15 00:00:00 +0800",
+"tag": "",
+"category": "ruby"
+}
+,
+
+
+"2017-09-01-ip-digital-interchange": {
+"title": "ip digital interchange",
+"url": " /2017-09-01/ip-digital-interchange/",
+"author": "",
+"date": "2017-09-01 00:00:00 +0800",
+"tag": "",
+"category": "ruby"
+}
+,
+
+
+"2017-08-18-virtualbox-resize-disk": {
+"title": "VirtualBox 开机自动启动虚拟机",
+"url": " /2017-08-18/virtualbox-resize-disk/",
+"author": "",
+"date": "2017-08-18 00:00:00 +0800",
+"tag": "",
+"category": "virtualbox"
+}
+,
+
+
+"2017-08-18-virtualbox-autostart": {
+"title": "VirtualBox 给虚拟机磁盘扩容",
+"url": " /2017-08-18/virtualbox-autostart/",
+"author": "",
+"date": "2017-08-18 00:00:00 +0800",
+"tag": "",
+"category": "virtualbox"
+}
+,
+
+
+"2017-08-18-ubuntu-remove-old-image": {
+"title": "Ubuntu Boot 空间不足",
+"url": " /2017-08-18/ubuntu-remove-old-image/",
+"author": "",
+"date": "2017-08-18 00:00:00 +0800",
+"tag": "",
+"category": "ubuntu"
+}
+,
+
+
+"2017-08-18-ssh-connet-error": {
+"title": "使用 SSH Secure Shell Client 连接  Ubuntu 报错",
+"url": " /2017-08-18/ssh-connet-error/",
+"author": "",
+"date": "2017-08-18 00:00:00 +0800",
+"tag": "",
+"category": "ssh"
+}
+,
+
+
+"2017-08-14-rvm-usage": {
+"title": "rvm",
+"url": " /2017-08-14/rvm-usage/",
+"author": "",
+"date": "2017-08-14 00:00:00 +0800",
+"tag": "",
+"category": "rvm"
+}
+,
+
+
+"2017-08-04-rails-search-many-fields": {
+"title": "解决 Where 多条件查询",
+"url": " /2017-08-04/rails-search-many-fields/",
+"author": "",
+"date": "2017-08-04 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2017-08-03-label-for": {
+"title": "Label for 标签",
+"url": " /2017-08-03/label-for/",
+"author": "",
+"date": "2017-08-03 00:00:00 +0800",
+"tag": "",
+"category": "html"
+}
+,
+
+
+"2017-08-02-install-nokogiri-error": {
+"title": "安装 nokogiri gem 报错",
+"url": " /2017-08-02/install-nokogiri-error/",
+"author": "",
+"date": "2017-08-02 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2017-08-01-html-copy": {
+"title": "网页进行复制操作",
+"url": " /2017-08-01/html-copy/",
+"author": "",
+"date": "2017-08-01 00:00:00 +0800",
+"tag": "",
+"category": "html"
+}
+,
+
+
+"2017-07-18-activerecord-history": {
+"title": "常用方法记录",
+"url": " /2017-07-18/activerecord-history/",
+"author": "",
+"date": "2017-07-18 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2017-07-13-rails-select-unique-value": {
+"title": "Rails select unique value from model",
+"url": " /2017-07-13/rails-select-unique-value/",
+"author": "",
+"date": "2017-07-13 00:00:00 +0800",
+"tag": "",
+"category": "ubuntu"
+}
+,
+
+
+"2017-05-11-ubuntu-upgrade-errors": {
+"title": "ubuntu 报错问题记录",
+"url": " /2017-05-11/ubuntu-upgrade-errors/",
+"author": "",
+"date": "2017-05-11 00:00:00 +0800",
+"tag": "",
+"category": "ubuntu"
+}
+,
+
+
+"2017-05-06-ruby-character-process": {
+"title": "字符串处理",
+"url": " /2017-05-06/ruby-character-process/",
+"author": "",
+"date": "2017-05-06 00:00:00 +0800",
+"tag": "",
+"category": "ruby"
+}
+,
+
+
+"2017-04-12-activerecord-with-mysql": {
+"title": "Activerecord 连 MySQL",
+"url": " /2017-04-12/activerecord-with-mysql/",
+"author": "",
+"date": "2017-04-12 00:00:00 +0800",
+"tag": "",
+"category": "rails mysql"
+}
+,
+
+
+"2017-04-11-mysql-operation-records": {
+"title": "MySQL 操作记录",
+"url": " /2017-04-11/mysql-operation-records/",
+"author": "",
+"date": "2017-04-11 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2017-04-07-ubuntu-unzip": {
+"title": "ubuntu解压zip文件乱码问题",
+"url": " /2017-04-07/ubuntu-unzip/",
+"author": "",
+"date": "2017-04-07 00:00:00 +0800",
+"tag": "",
+"category": "ubuntu"
+}
+,
+
+
+"2017-03-29-windows-install-mysql": {
+"title": "Window 安装 MySQL步骤",
+"url": " /2017-03-29/windows-install-mysql/",
+"author": "",
+"date": "2017-03-29 00:00:00 +0800",
+"tag": "",
+"category": "mysql windows"
+}
+,
+
+
+"2017-02-03-ubuntu-filesystem-failed": {
+"title": "Ubuntu开机进入initramfs",
+"url": " /2017-02-03/ubuntu-filesystem-failed/",
+"author": "",
+"date": "2017-02-03 00:00:00 +0800",
+"tag": "",
+"category": "ubuntu"
+}
+,
+
+
+"2016-12-29-ubuntu-config-ip": {
+"title": "Ubuntu 设置 IP",
+"url": " /2016-12-29/ubuntu-config-ip/",
+"author": "",
+"date": "2016-12-29 00:00:00 +0800",
+"tag": "",
+"category": "ubuntu"
+}
+,
+
+
+"2016-12-20-vim-e6-ba-90-e7-a0-81-e7-bc-96-e8-af-91-e5-ae-89-e8-a3-85": {
+"title": "Vim 源码编译安装",
+"url": " /2016-12-20/Vim%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/",
+"author": "",
+"date": "2016-12-20 00:00:00 +0800",
+"tag": "",
+"category": "常用命令"
+}
+,
+
+
+"2016-12-14-ubuntu-install-qt": {
+"title": "Ubuntu 安装QT报错解决",
+"url": " /2016-12-14/ubuntu-install-qt/",
+"author": "",
+"date": "2016-12-14 00:00:00 +0800",
+"tag": "",
+"category": "ubuntu"
+}
+,
+
+
+"2016-12-05-arrary": {
+"title": "Ruby Array",
+"url": " /2016-12-05/arrary/",
+"author": "",
+"date": "2016-12-05 00:00:00 +0800",
+"tag": "",
+"category": "ruby"
+}
+,
+
+
+"2016-11-29-ubuntu-install-gtx1080-driver-cuda": {
+"title": "Ubuntu 安装NVDGTX1080驱动及CUDA",
+"url": " /2016-11-29/ubuntu-install-gtx1080-driver-cuda/",
+"author": "",
+"date": "2016-11-29 00:00:00 +0800",
+"tag": "",
+"category": "mysql windows"
+}
+,
+
+
+"2016-11-22-rails-migration-execute-sql": {
+"title": "Migration 执行 SQL 语句",
+"url": " /2016-11-22/rails-migration-execute-sql/",
+"author": "",
+"date": "2016-11-22 00:00:00 +0800",
+"tag": "",
+"category": "rails基础 migration"
+}
+,
+
+
+"2016-11-22-use-database-view-in-rails-development": {
+"title": "在 Rails 项目开发过程中使用视图",
+"url": " /2016-11-22/Use-Database-View-In-Rails-Development/",
+"author": "",
+"date": "2016-11-22 00:00:00 +0800",
+"tag": "",
+"category": "rails基础 view"
+}
+,
+
+
+"2016-11-21-create-view": {
+"title": "PostgreSQL Create View",
+"url": " /2016-11-21/create-view/",
+"author": "",
+"date": "2016-11-21 00:00:00 +0800",
+"tag": "",
+"category": "postgresql"
+}
+,
+
+
+"2016-11-08-batch-handle-shell": {
+"title": "批量处理脚本",
+"url": " /2016-11-08/batch-handle-shell/",
+"author": "",
+"date": "2016-11-08 00:00:00 +0800",
+"tag": "",
+"category": "shell"
+}
+,
+
+
+"2016-11-02-rails-where-condiction": {
+"title": "Rails Where Condiction",
+"url": " /2016-11-02/rails-where-condiction/",
+"author": "",
+"date": "2016-11-02 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2016-11-02-rails-join-table": {
+"title": "Rails Join Table",
+"url": " /2016-11-02/rails-join-table/",
+"author": "",
+"date": "2016-11-02 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2016-11-02-rails-generate-token": {
+"title": "Rails 生成 Token",
+"url": " /2016-11-02/rails-generate-token/",
+"author": "",
+"date": "2016-11-02 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2016-11-02-rails-find-in-batches": {
+"title": "Rails 批量查询处理数据",
+"url": " /2016-11-02/rails-find-in-batches/",
+"author": "",
+"date": "2016-11-02 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2016-11-02-rails-controller-cache": {
+"title": "Rails Controller 缓存",
+"url": " /2016-11-02/rails-controller-cache/",
+"author": "",
+"date": "2016-11-02 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2016-11-02-js-generate-uuid": {
+"title": "JS generate uuid",
+"url": " /2016-11-02/js-generate-uuid/",
+"author": "",
+"date": "2016-11-02 00:00:00 +0800",
+"tag": "",
+"category": "js"
+}
+,
+
+
+"2016-11-01-rails-with-uuid": {
+"title": "Rails项目使用UUID",
+"url": " /2016-11-01/rails-with-uuid/",
+"author": "",
+"date": "2016-11-01 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2016-10-27-postgresql-change-postgres-password": {
+"title": "修改 postgresql 密码",
+"url": " /2016-10-27/PostgreSQL-Change-Postgres-Password/",
+"author": "",
+"date": "2016-10-27 00:00:00 +0800",
+"tag": "",
+"category": "postgresql"
+}
+,
+
+
+"2016-10-21-ubuntu-install-shadowsocks": {
+"title": "ubuntu 搭建 shadowsocks 服务器",
+"url": " /2016-10-21/ubuntu-install-shadowsocks/",
+"author": "",
+"date": "2016-10-21 00:00:00 +0800",
+"tag": "",
+"category": "vpn"
+}
+,
+
+
+"2016-10-17-qt-deploy": {
+"title": "Mac下发布Qt程序并修改图标",
+"url": " /2016-10-17/qt-deploy/",
+"author": "",
+"date": "2016-10-17 00:00:00 +0800",
+"tag": "",
+"category": "qt"
+}
+,
+
+
+"2016-10-15-ububtu-allow-root-login": {
+"title": "Ubuntu设置允许root用户登录",
+"url": " /2016-10-15/Ububtu-allow-root-login/",
+"author": "",
+"date": "2016-10-15 00:00:00 +0800",
+"tag": "",
+"category": "server"
+}
+,
+
+
+"2016-10-12-crontab-log": {
+"title": "Ubuntu查看crontab运行日志",
+"url": " /2016-10-12/Crontab-log/",
+"author": "",
+"date": "2016-10-12 00:00:00 +0800",
+"tag": "",
+"category": "server"
+}
+,
+
+
+"2016-10-10-ruby-performs-periodic-task": {
+"title": "Ruby 中执行周期性任务",
+"url": " /2016-10-10/Ruby-Performs-Periodic-Task/",
+"author": "",
+"date": "2016-10-10 00:00:00 +0800",
+"tag": "",
+"category": "server"
+}
+,
+
+
+"2016-10-09-ubuntu-install-exim": {
+"title": "Ubuntu下配置exim服务器",
+"url": " /2016-10-09/Ubuntu-install-exim/",
+"author": "",
+"date": "2016-10-09 00:00:00 +0800",
+"tag": "",
+"category": "server"
+}
+,
+
+
+"2016-10-09-ruby-send-mail": {
+"title": "发送邮件脚本",
+"url": " /2016-10-09/Ruby-Send-Mail/",
+"author": "",
+"date": "2016-10-09 00:00:00 +0800",
+"tag": "",
+"category": "server shell"
+}
+,
+
+
+"2016-09-27-redis-log-read": {
+"title": "Redis 日志调试",
+"url": " /2016-09-27/Redis-log-read/",
+"author": "",
+"date": "2016-09-27 00:00:00 +0800",
+"tag": "",
+"category": "redis"
+}
+,
+
+
+"2016-09-27-redis-backup": {
+"title": "Redis 持久化与备份策略",
+"url": " /2016-09-27/Redis-backup/",
+"author": "",
+"date": "2016-09-27 00:00:00 +0800",
+"tag": "",
+"category": "redis"
+}
+,
+
+
+"2016-09-27-rails-redis-cache-clear": {
+"title": "Rails项目中Redis 清除缓存",
+"url": " /2016-09-27/Rails-Redis-cache-clear/",
+"author": "",
+"date": "2016-09-27 00:00:00 +0800",
+"tag": "",
+"category": "redis"
+}
+,
+
+
+"2016-09-18-rails5-actioncable-deploy": {
+"title": "actioncable部署记录",
+"url": " /2016-09-18/Rails5-actioncable-deploy/",
+"author": "",
+"date": "2016-09-18 00:00:00 +0800",
+"tag": "",
+"category": "服务器"
+}
+,
+
+
+"2016-08-13-postgresql-backup": {
+"title": "PostgreSQL 备份及恢复",
+"url": " /2016-08-13/PostgreSQL-backup/",
+"author": "",
+"date": "2016-08-13 00:00:00 +0800",
+"tag": "",
+"category": "postgresql"
+}
+,
+
+
+"2016-08-11-redis-configure": {
+"title": "Redis 安装及配置 sockets 连接",
+"url": " /2016-08-11/Redis-configure/",
+"author": "",
+"date": "2016-08-11 00:00:00 +0800",
+"tag": "",
+"category": "redis"
+}
+,
+
+
+"2016-08-02-git-branch-and-usage": {
+"title": "Git 分支命名规范",
+"url": " /2016-08-02/git-branch-and-usage/",
+"author": "",
+"date": "2016-08-02 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-07-19-postgresql-install": {
+"title": "PostgreSQL 安装",
+"url": " /2016-07-19/PostgreSQL-install/",
+"author": "",
+"date": "2016-07-19 00:00:00 +0800",
+"tag": "",
+"category": "postgresql"
+}
+,
+
+
+"2016-07-10-code-review": {
+"title": "深入理解代码评审",
+"url": " /2016-07-10/code-review/",
+"author": "",
+"date": "2016-07-10 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-07-09-postgresql-feature": {
+"title": "PostgreSQL 主要特性",
+"url": " /2016-07-09/PostgreSQL-feature/",
+"author": "",
+"date": "2016-07-09 00:00:00 +0800",
+"tag": "",
+"category": "postgresql"
+}
+,
+
+
+"2016-07-04-how-to-build-quality-code": {
+"title": "如何构建优质代码",
+"url": " /2016-07-04/how-to-build-quality-code/",
+"author": "",
+"date": "2016-07-04 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-07-03-aws-es2-add-vpn": {
+"title": "AWS上Ubunt系统添加VPN",
+"url": " /2016-07-03/aws-es2-add-vpn/",
+"author": "",
+"date": "2016-07-03 00:00:00 +0800",
+"tag": "",
+"category": "服务器"
+}
+,
+
+
+"2016-06-19-mysql-e5-ae-89-e5-85-a8-e9-85-8d-e7-bd-ae": {
+"title": "MySQL 安全配置",
+"url": " /2016-06-19/Mysql-%E5%AE%89%E5%85%A8%E9%85%8D%E7%BD%AE/",
+"author": "",
+"date": "2016-06-19 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-06-10-refactor": {
+"title": "代码重构",
+"url": " /2016-06-10/refactor/",
+"author": "",
+"date": "2016-06-10 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-05-18-javascript-closure": {
+"title": "请用一句优雅的话表达javascript闭包",
+"url": " /2016-05-18/Javascript-closure/",
+"author": "",
+"date": "2016-05-18 00:00:00 +0800",
+"tag": "",
+"category": "前端"
+}
+,
+
+
+"2016-05-11-front-end-interview-questions": {
+"title": "前端工程师面试内容",
+"url": " /2016-05-11/Front-End-Interview-Questions/",
+"author": "",
+"date": "2016-05-11 00:00:00 +0800",
+"tag": "",
+"category": "前端"
+}
+,
+
+
+"2016-05-09-front-end-interview-base": {
+"title": "如何面试前端工程师：Github很重要",
+"url": " /2016-05-09/Front-End-Interview-Base/",
+"author": "",
+"date": "2016-05-09 00:00:00 +0800",
+"tag": "",
+"category": "前端"
+}
+,
+
+
+"2016-05-03-restful": {
+"title": "RESTful 开发",
+"url": " /2016-05-03/RESTful/",
+"author": "",
+"date": "2016-05-03 00:00:00 +0800",
+"tag": "",
+"category": "api"
+}
+,
+
+
+"2016-04-29-ubuntu-install-jitsimeet": {
+"title": "Ubuntu 源码安装 Jitsi Meet",
+"url": " /2016-04-29/Ubuntu-Install-JitsiMeet/",
+"author": "",
+"date": "2016-04-29 00:00:00 +0800",
+"tag": "",
+"category": "java"
+}
+,
+
+
+"2016-04-28-ubuntu-install-oraclejdk": {
+"title": "Ubuntu 下安装 Oracle JDK",
+"url": " /2016-04-28/Ubuntu-Install-OracleJDK/",
+"author": "",
+"date": "2016-04-28 00:00:00 +0800",
+"tag": "",
+"category": "java"
+}
+,
+
+
+"2016-04-27-install-sip-server": {
+"title": "Ubuntu 安装 SIP 服务器",
+"url": " /2016-04-27/install-sip-server/",
+"author": "",
+"date": "2016-04-27 00:00:00 +0800",
+"tag": "",
+"category": "server"
+}
+,
+
+
+"2016-04-18-git-commit-message": {
+"title": "Git commit message 规范",
+"url": " /2016-04-18/git-commit-message/",
+"author": "",
+"date": "2016-04-18 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-04-18-version-manage": {
+"title": "软件版本阶段说明",
+"url": " /2016-04-18/Version-Manage/",
+"author": "",
+"date": "2016-04-18 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-04-13-ruby-interview": {
+"title": "ruby 面试题目",
+"url": " /2016-04-13/Ruby-Interview/",
+"author": "",
+"date": "2016-04-13 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-04-09-mysql-e5-b8-b8-e7-94-a8-e6-9f-a5-e8-af-a2-e8-af-ad-e5-8f-a5": {
+"title": "MySQL的常用SQL查询语句",
+"url": " /2016-04-09/Mysql-%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5/",
+"author": "",
+"date": "2016-04-09 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-04-07-upgrade-nodejs": {
+"title": "升级node.js到最新稳定版",
+"url": " /2016-04-07/upgrade-nodejs/",
+"author": "",
+"date": "2016-04-07 00:00:00 +0800",
+"tag": "",
+"category": "nodejs"
+}
+,
+
+
+"2016-04-01-mysql-e5-b8-b8-e7-94-a8-e8-af-ad-e5-8f-a5": {
+"title": "MySQL的常用语法记录",
+"url": " /2016-04-01/Mysql-%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5/",
+"author": "",
+"date": "2016-04-01 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-03-29-rails-flash-angularjs": {
+"title": "在 AngularJS 中显示 Rails Flash中消息",
+"url": " /2016-03-29/rails-flash-angularjs/",
+"author": "",
+"date": "2016-03-29 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-03-25-rails-gems": {
+"title": "常用 Gems",
+"url": " /2016-03-25/rails-gems/",
+"author": "",
+"date": "2016-03-25 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-03-21-gulp": {
+"title": "使用 gulp 编译压缩 css",
+"url": " /2016-03-21/gulp/",
+"author": "",
+"date": "2016-03-21 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-03-13-ubuntu-ufw-usage": {
+"title": "Ubuntu 防火墙 ufw 使用",
+"url": " /2016-03-13/ubuntu-ufw-usage/",
+"author": "",
+"date": "2016-03-13 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-03-09-check-server-port-opened": {
+"title": "检测远程端口是否打开",
+"url": " /2016-03-09/check-server-port-opened/",
+"author": "",
+"date": "2016-03-09 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-03-07-ubuntu-upgrade-nginx": {
+"title": "ubuntu 下升级 nginx",
+"url": " /2016-03-07/ubuntu-upgrade-nginx/",
+"author": "",
+"date": "2016-03-07 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-03-02-rails-unscoped-scope": {
+"title": "rails unscoped 作用域位置的影响",
+"url": " /2016-03-02/rails-Unscoped-Scope/",
+"author": "",
+"date": "2016-03-02 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2016-03-01-rtmp-e5-8d-8f-e8-ae-ae": {
+"title": "RTMP 协议",
+"url": " /2016-03-01/rtmp%E5%8D%8F%E8%AE%AE/",
+"author": "",
+"date": "2016-03-01 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-02-18-ruby-usage": {
+"title": "ruby 备忘",
+"url": " /2016-02-18/ruby-usage/",
+"author": "",
+"date": "2016-02-18 00:00:00 +0800",
+"tag": "",
+"category": "ruby"
+}
+,
+
+
+"2016-02-18-ruby-for-test": {
+"title": "Ruby模拟多线程测试接口服务器压力",
+"url": " /2016-02-18/Ruby-For-Test/",
+"author": "",
+"date": "2016-02-18 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2016-01-12-git-usage": {
+"title": "git 备忘",
+"url": " /2016-01-12/git-usage/",
+"author": "",
+"date": "2016-01-12 00:00:00 +0800",
+"tag": "",
+"category": "git"
+}
+,
+
+
+"2015-12-12-ssh-uage": {
+"title": "ssh 远程登录",
+"url": " /2015-12-12/ssh-uage/",
+"author": "",
+"date": "2015-12-12 00:00:00 +0800",
+"tag": "",
+"category": "常用命令"
+}
+,
+
+
+"2015-12-12-scp-usage": {
+"title": "scp进行文件的拷贝",
+"url": " /2015-12-12/Scp-Usage/",
+"author": "",
+"date": "2015-12-12 00:00:00 +0800",
+"tag": "",
+"category": "常用命令"
+}
+,
+
+
+"2015-11-26-backup-mysql": {
+"title": "本地定时备份mysql数据库脚本",
+"url": " /2015-11-26/Backup-Mysql/",
+"author": "",
+"date": "2015-11-26 00:00:00 +0800",
+"tag": "",
+"category": "mysql"
+}
+,
+
+
+"2015-11-25-write-ruby-gem": {
+"title": "Ruby Gem包制作",
+"url": " /2015-11-25/Write-Ruby-Gem/",
+"author": "",
+"date": "2015-11-25 00:00:00 +0800",
+"tag": "",
+"category": "ruby"
+}
+,
+
+
+"2015-11-17-ruby-style-guide": {
+"title": "Ruby Style Guide",
+"url": " /2015-11-17/ruby-style-guide/",
+"author": "",
+"date": "2015-11-17 00:00:00 +0800",
+"tag": "",
+"category": "guide"
+}
+,
+
+
+"2015-11-17-rails-style-guide": {
+"title": "Rails Style Guide",
+"url": " /2015-11-17/rails-style-guide/",
+"author": "",
+"date": "2015-11-17 00:00:00 +0800",
+"tag": "",
+"category": "guide"
+}
+,
+
+
+"2015-11-16-google-host": {
+"title": "google host",
+"url": " /2015-11-16/google-host/",
+"author": "",
+"date": "2015-11-16 00:00:00 +0800",
+"tag": "",
+"category": "hosts"
+}
+,
+
+
+"2015-11-11-rails-app-deploy-to-heroku": {
+"title": "rails 应用部署到 heroku",
+"url": " /2015-11-11/Rails-App-Deploy-To-Heroku/",
+"author": "",
+"date": "2015-11-11 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2015-11-10-linux-shell-record": {
+"title": "linux 命令记录",
+"url": " /2015-11-10/linux-shell-record/",
+"author": "",
+"date": "2015-11-10 00:00:00 +0800",
+"tag": "",
+"category": "linux"
+}
+,
+
+
+"2015-11-01-ubuntu-add-swap": {
+"title": "Ubuntu系统添加swap",
+"url": " /2015-11-01/Ubuntu-Add-Swap/",
+"author": "",
+"date": "2015-11-01 00:00:00 +0800",
+"tag": "",
+"category": "server"
+}
+,
+
+
+"2015-10-30-ubuntu-mount-disk": {
+"title": "Ubuntu挂载新硬盘",
+"url": " /2015-10-30/Ubuntu-Mount-Disk/",
+"author": "",
+"date": "2015-10-30 00:00:00 +0800",
+"tag": "",
+"category": "server"
+}
+,
+
+
+"2015-10-21-capistrano3-with-rails": {
+"title": "使用capistrano3 进行rails自动化部署",
+"url": " /2015-10-21/Capistrano3-With-Rails/",
+"author": "",
+"date": "2015-10-21 00:00:00 +0800",
+"tag": "",
+"category": "deploy"
+}
+,
+
+
+"2015-10-14-install-gitlab": {
+"title": "安装GitLab",
+"url": " /2015-10-14/Install-Gitlab/",
+"author": "",
+"date": "2015-10-14 00:00:00 +0800",
+"tag": "",
+"category": "gitlab"
+}
+,
+
+
+"2015-10-02-rails-validate-callback": {
+"title": "rails常用的回调方法",
+"url": " /2015-10-02/Rails-Validate-Callback/",
+"author": "",
+"date": "2015-10-02 00:00:00 +0800",
+"tag": "",
+"category": "rails"
+}
+,
+
+
+"2015-09-25-use-markdown-write-wiki-with-fileupload-and-password": {
+"title": "使用Markdown写WIKI支持文件上传及简单密码验证",
+"url": " /2015-09-25/Use-Markdown-Write-Wiki-With-Fileupload-And-Password/",
+"author": "",
+"date": "2015-09-25 00:00:00 +0800",
+"tag": "",
+"category": "wiki"
+}
+,
+
+
+"2015-09-19-rails-nginx-https": {
+"title": "提供https的服务",
+"url": " /2015-09-19/Rails-Nginx-Https/",
+"author": "",
+"date": "2015-09-19 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2015-09-16-cucumber-start": {
+"title": "Cucumber 入门指南",
+"url": " /2015-09-16/Cucumber-Start/",
+"author": "",
+"date": "2015-09-16 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2015-09-11-start-write-blog": {
+"title": "Hello World",
+"url": " /2015-09-11/Start-Write-Blog/",
+"author": "",
+"date": "2015-09-11 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2015-08-21-mysql-e5-a4-87-e4-bb-bd-e6-81-a2-e5-a4-8d-e5-91-bd-e4-bb-a4": {
+"title": "MySQL备份恢复命令",
+"url": " /2015-08-21/Mysql-%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D%E5%91%BD%E4%BB%A4/",
+"author": "",
+"date": "2015-08-21 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2015-07-01-mysql-e9-85-8d-e7-bd-ae-e8-bf-9c-e7-a8-8b-e5-ae-a2-e6-88-b7-e7-ab-af-e8-bf-9e-e6-8e-a5": {
+"title": "MySQL配置远程访问",
+"url": " /2015-07-01/Mysql%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5/",
+"author": "",
+"date": "2015-07-01 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2014-04-01-mysql-e6-8a-a5-e9-94-99-e8-ae-b0-e5-bd-95": {
+"title": "MySQL忘记root密码",
+"url": " /2014-04-01/Mysql%E6%8A%A5%E9%94%99%E8%AE%B0%E5%BD%95/",
+"author": "",
+"date": "2014-04-01 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+,
+
+
+"2014-04-01-mysql-e5-bf-98-e8-ae-b0root-e5-af-86-e7-a0-81-e8-bf-9c-e7-a8-8b-e8-ae-bf-e9-97-ae-e7-ad-89": {
+"title": "MySQL忘记root密码",
+"url": " /2014-04-01/Mysql%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E7%AD%89/",
+"author": "",
+"date": "2014-04-01 00:00:00 +0800",
+"tag": "",
+"category": ""
+}
+
+
+}

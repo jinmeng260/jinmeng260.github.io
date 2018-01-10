@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cucumber 入门指南</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="Cucumber 入门指南, test, cucumber, Cheenwe" />
+    <meta name="description" content="Cucumber 入门指南, test, cucumber, 什么是CucumberCucumber是一个能够理解用普通语言 描述的测试用例的支持行为驱动开发（BDD）的自动化测试工具，用Ruby编写，支持Java和·Net等多种开发语言。" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://0.0.0.0:4000/favicon.ico" />
+    <link rel="canonical" href="http://0.0.0.0:4000/2015-09-16/Cucumber-Start/" />
+    <link rel="alternate" type="application/rss+xml" title="Cheenwe" href="http://0.0.0.0:4000/feed.xml"  />
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/octicons/3.5.0/octicons.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/post.css" />
+    
+</head>
+
+
+<body>
+<div class="main">
+
+  
+  
+  <header>
+    <nav class="navbar navbar-tiffany rectangle" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://0.0.0.0:4000/">Cheenwe</a>
+          <p class="navbar-text">A Ruby Coder</p>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li>
+            <a href="http://0.0.0.0:4000/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
+            </li>
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/archive/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Archive</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/category/" class="word-keep"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;Category</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/tags/" class="word-keep"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;Tag</a>
+            </li>
+            
+            
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/project/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Project</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+<li>
+
+  <a href="#stq=" class="search-button" data-toggle="modal" data-target="#myModal"><span class="octicon octicon-search">&nbsp;&nbsp; Search</span></a>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form action="get" id="site_search">
+            <input type="text" id="search_box" placeholder="Search">
+            <button class="btn btn-default" type="submit"><span class="octicon octicon-search"></span></button>
+          </form>
+        </div>
+        <div class="modal-body">
+          <ul id="search_results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+    <div class="container">
+        <div class="row">
+    <div class="content col-lg-9">
+        <div class="sheet post">
+          <header>
+            <h2>Cucumber 入门指南</h2>
+            <p class="post-meta">
+                <span class="octicon octicon-clock"></span> Sep 16, 2015
+            </p>
+            <p class="post-tag">
+                <span><a href="http://0.0.0.0:4000/category/#test"><span class="octicon octicon-list-unordered"></span>&nbsp;test</a></span>
+                <span>
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#cucumber"><span class="octicon octicon-tag"></span>&nbsp;cucumber</a>
+                    
+                </span>
+            </p>
+          </header>
+          <hr class="boundary">
+          <article>
+            <h1 id="什么是cucumber">什么是Cucumber</h1>
+<p>Cucumber是一个能够理解用普通语言 描述的测试用例的支持行为驱动开发（BDD）的自动化测试工具，用Ruby编写，支持Java和·Net等多种开发语言。</p>
+
+<p>两个特性:</p>
+
+<ul>
+  <li>
+    <p>可以使用自然语言描述测试用例</p>
+  </li>
+  <li>
+    <p>可以作为自动化测试运行</p>
+  </li>
+</ul>
+
+<p>BDD（Behavior Driven Development, 行为驱动开发）是一种敏捷软件开发的技术，它鼓励软件项目中的开发者、QA和非技术人员或商业参与者之间的协作。 它包括验收测试和客户测试驱动等的极限编程的实践，作为对测试驱动开发的回应。在过去数年里，它得到了很大的发展。它定义了一个可持续的周期，在周期中人们先设定目标，再为了达到预期目标而进行编码，只有代码通过验证才可提交。持续交付可工作、经过测试的软件。</p>
+
+<h2 id="rails中安装cucumber">Rails中安装Cucumber</h2>
+<p>在Gemfile中添加</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    group :test, :development do
+      gem 'cucumber-rails', :require =&gt; false
+      # database_cleaner is not required, but highly recommended
+      gem 'database_cleaner'
+    end
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+</code></pre></div></div>
+
+<p>生成cucumber文件:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails generate cucumber:install
+</code></pre></div></div>
+
+<p>运行:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rake cucumber
+</code></pre></div></div>
+
+<h2 id="cucumber示例">Cucumber示例</h2>
+<p>###1.写自然语言描述</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#/features/calculator.feature
+Feature: 计算器
+
+  Scenario: 两数相加
+    Given 我有一个计算器
+    And 我向计算器输入50
+    And 我向计算器输入70
+    When 我点击累加
+    Then 我应该看到结果120
+</code></pre></div></div>
+
+<p>###2.运行
+cucumber features/calculator.feature</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Feature: 计算器
+
+  Scenario: 两数相加    # features/calculator.feature:3
+    Given 我有一个计算器   # features/calculator.feature:4
+    And 我向计算器输入50   # features/calculator.feature:5
+    And 我向计算器输入70   # features/calculator.feature:6
+    When 我点击累加      # features/calculator.feature:7
+    Then 我应该看到结果120 # features/calculator.feature:8
+
+1 scenario (1 undefined)
+5 steps (5 undefined)
+0m0.034s
+
+You can implement step definitions for undefined steps with these snippets:
+
+Given(/^我有一个计算器$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Given(/^我向计算器输入(\d+)$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^我点击累加$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^我应该看到结果(\d+)$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+</code></pre></div></div>
+
+<p><a href="/files/images/2015/09/16/2.png"><img src="/files/images/2015/09/16/2.png" alt="" /></a>
+Cucumber首先输出的是测试用例的描述，然后3行总结性地输出：本功能（Feature）有1个情景（1 scenario）；5个步骤（5 steps），全部5个步骤均未定义（undefined）；运行耗时0.005秒。这里出现了两个新名词：步骤(steps)和步骤定义（step definitions）。在Cucumber中，以关键字Given, And, When, Then开头的每一行，为一个步骤。在两数相加的情景中，一共有5行。
+###2.按照步骤定义填充代码
+/features/step_definitions/define_calculator.rb</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Given /^我有一个计算器$/ do
+  @c = Calculator.new
+end
+
+Given /^我向计算器输入(\d+)$/ do |num|
+  @c.push(num.to_i)
+end
+
+When /^我点击累加$/ do
+  @c.sum
+end
+
+Then /^我应该看到结果(\d+)$/ do |result|
+  @c.result.should == result.to_i
+end
+</code></pre></div></div>
+<p>###3.编写类方法
+/features/step_definitions/calculator.rb</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Calculator
+    def push n
+        @arr ||=[]
+        @arr &lt;&lt; n
+    end
+    def sum()
+        result = 0
+        @arr.map{|a| result += a}
+        @result = result
+    end
+    def result
+        @result
+    end
+
+end
+</code></pre></div></div>
+
+<p>###4.运行
+cucumber features/calculator.feature</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Feature: 计算器
+
+  Scenario: 两数相加    # features/calculator.feature:3
+    Given 我有一个计算器   # features/step_definitions/define_calculator.rb:1
+    And 我向计算器输入50   # features/step_definitions/define_calculator.rb:5
+    And 我向计算器输入70   # features/step_definitions/define_calculator.rb:5
+    When 我点击累加      # features/step_definitions/define_calculator.rb:9
+    Then 我应该看到结果120 # features/step_definitions/define_calculator.rb:13
+
+1 scenario (1 passed)
+5 steps (5 passed)
+0m0.031s
+</code></pre></div></div>
+
+<p><img src="https://cheenwe.github.io/static/img/files/2015/09/16/4.png" alt="如何插入并上传图片" />
+Cucumber输出运行结果：1个情景，5个步骤，全部通过。</p>
+
+<h2 id="语言支持">语言支持</h2>
+<p>查看支持语言
+  cucumber –i18n help
+中英文对照
+  cucumber –i18n zh-CN</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      | feature          | "功能"                   |
+      | background       | "背景"                   |
+      | scenario         | "场景", "剧本"             |
+      | scenario_outline | "场景大纲", "剧本大纲"         |
+      | examples         | "例子"                   |
+      | given            | "* ", "假如", "假设", "假定" |
+      | when             | "* ", "当"              |
+      | then             | "* ", "那么"             |
+      | and              | "* ", "而且", "并且", "同时" |
+      | but              | "* ", "但是"             |
+      | given (code)     | "假如", "假设", "假定"       |
+      | when (code)      | "当"                    |
+      | then (code)      | "那么"                   |
+      | and (code)       | "而且", "并且", "同时"       |
+      | but (code)       | "但是"                   |
+</code></pre></div></div>
+
+          </article>
+          <hr class="boundary">
+        </div>
+
+        <div class="pad-min"></div>
+        <div id="post-comment" class="sheet post">
+            <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="/2015-09-16/Cucumber-Start/" ></div>
+
+<script type="text/javascript">
+(function(){
+var appid = "cysX5sziD";
+var conf = "prod_45285c7173354294675fbce39f863858";
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </div>
+
+    </div>
+
+    <div class="content-navigation col-lg-3">
+      <div class="shadow-bottom-center" >
+        <div class="content-navigation-toc">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Toc
+            </div>
+            <div class="content-navigation-list toc"></div>
+        </div>
+        <div class="content-navigation-tag">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Tags
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#cucumber"><span class="octicon octicon-tag"></span>&nbsp;cucumber</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-navigation-related">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Related
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
+
+    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
+        <a href="javascript:void(0);">
+            <div class="arrow"></div>
+            <div class="stick"></div>
+        </a>
+    </div>
+</div>
+
+<footer  class="footnote footnote-tiffany">
+	<div class="container">
+		<div class="summary">
+			总访问<span id="busuanzi_value_site_pv"></span>次，访客<span id="busuanzi_value_site_uv"></span>人次，本页总阅读<span id="busuanzi_value_page_pv"></span>次
+		</div>
+		</line>
+		<a class="foot-item" href="mailto:cxhyun@126.com" target="_blank"><span class="octicon octicon-mail"></span></a>
+		<a class="foot-item" href="https://github.com/cheenwe" target="_blank"><span class="octicon octicon-mark-github"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/feed.xml" target="_blank"><span class="octicon octicon-rss"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/link/"><span class="octicon octicon-link-external"></span></a>
+		&nbsp;
+		<a href="http://0.0.0.0:4000/about/"><span class="word-keep">&copy;Cheenwe</span></a>
+		<a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备16011691号</a>
+
+	</div>
+</footer>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/static/js/lunr.min.js"></script>
+<script src="/static/js/search.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/script.js"></script>
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/post.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/toc.js"></script>
+
+
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?53d63f40f6eef2f51c5cf14443efe386";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

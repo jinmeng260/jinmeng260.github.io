@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ruby 备忘</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="ruby 备忘, ruby, ruby, Cheenwe" />
+    <meta name="description" content="ruby 备忘, ruby, ruby, ruby 备忘整理自个人有道云记录" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://0.0.0.0:4000/favicon.ico" />
+    <link rel="canonical" href="http://0.0.0.0:4000/2016-02-18/ruby-usage/" />
+    <link rel="alternate" type="application/rss+xml" title="Cheenwe" href="http://0.0.0.0:4000/feed.xml"  />
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/octicons/3.5.0/octicons.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/post.css" />
+    
+</head>
+
+
+<body>
+<div class="main">
+
+  
+  
+  <header>
+    <nav class="navbar navbar-tiffany rectangle" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://0.0.0.0:4000/">Cheenwe</a>
+          <p class="navbar-text">A Ruby Coder</p>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li>
+            <a href="http://0.0.0.0:4000/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
+            </li>
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/archive/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Archive</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/category/" class="word-keep"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;Category</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/tags/" class="word-keep"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;Tag</a>
+            </li>
+            
+            
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/project/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Project</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+<li>
+
+  <a href="#stq=" class="search-button" data-toggle="modal" data-target="#myModal"><span class="octicon octicon-search">&nbsp;&nbsp; Search</span></a>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form action="get" id="site_search">
+            <input type="text" id="search_box" placeholder="Search">
+            <button class="btn btn-default" type="submit"><span class="octicon octicon-search"></span></button>
+          </form>
+        </div>
+        <div class="modal-body">
+          <ul id="search_results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+    <div class="container">
+        <div class="row">
+    <div class="content col-lg-9">
+        <div class="sheet post">
+          <header>
+            <h2>ruby 备忘</h2>
+            <p class="post-meta">
+                <span class="octicon octicon-clock"></span> Feb 18, 2016
+            </p>
+            <p class="post-tag">
+                <span><a href="http://0.0.0.0:4000/category/#ruby"><span class="octicon octicon-list-unordered"></span>&nbsp;ruby</a></span>
+                <span>
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#ruby"><span class="octicon octicon-tag"></span>&nbsp;ruby</a>
+                    
+                </span>
+            </p>
+          </header>
+          <hr class="boundary">
+          <article>
+            <h1 id="ruby-备忘">ruby 备忘</h1>
+<p>整理自个人有道云记录</p>
+
+<h2 id="判断字符类型">判断字符类型</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>取余数 :
+n%20 == 0
+
+整数判断 :
+i.is_a?(Integer)
+
+浮点数判断 :
+i.is_a?(Float)
+
+数字判断 :
+i.is_a?(Numeric)
+
+类方法判断 :
+i.class == Fixnum
+</code></pre></div></div>
+
+<h2 id="字符串处理">字符串处理</h2>
+
+<h3 id="连接">连接</h3>
+<blockquote>
+  <p>“a”+”b”*3 #=&gt; “abbb”</p>
+</blockquote>
+
+<h3 id="比较">比较</h3>
+<blockquote>
+  <p>“a”&gt;”b” #=&gt;false</p>
+</blockquote>
+
+<blockquote>
+  <p>“a”&lt;”b” #=&gt;true</p>
+</blockquote>
+
+<h3 id="截取">截取</h3>
+<blockquote>
+  <p>“hello word”[1..2] #=&gt; el</p>
+</blockquote>
+
+<blockquote>
+  <p>“hello word”[2,3] #=&gt; “llo”</p>
+</blockquote>
+
+<blockquote>
+  <p>“hello word”[-9..-7] #=&gt; “ell”</p>
+</blockquote>
+
+<h3 id="首字母大写-capitalize">首字母大写 capitalize</h3>
+
+<blockquote>
+  <p>“hello”.capitalize #=&gt; “Hello”</p>
+</blockquote>
+
+<blockquote>
+  <p>“HELLO”.capitalize #=&gt; “Hello”</p>
+</blockquote>
+
+<blockquote>
+  <p>“123ABC”.capitalize #=&gt; “123abc”</p>
+</blockquote>
+
+<h3 id="首字母小写-downcase">首字母小写 downcase</h3>
+
+<blockquote>
+  <p>“hEllO”.downcase #=&gt; “hello”</p>
+</blockquote>
+
+<h3 id="删除字符-delete">删除字符 delete</h3>
+<p>“hello”.delete “l”,”lo” #=&gt; “heo”</p>
+
+<p>“hello”.delete “lo” #=&gt; “he”</p>
+
+<h3 id="字符串-转-类">字符串 转 类</h3>
+
+<blockquote>
+  <p>“Article”.constantize</p>
+</blockquote>
+
+<p>or</p>
+
+<blockquote>
+  <p>Object.const_get(“Article”)</p>
+</blockquote>
+
+<h3 id="替换-gsub">替换 gsub</h3>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span> <span class="o">=</span> <span class="s2">"crm_property_anime_type"</span>
+
+<span class="n">b</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s2">"_"</span><span class="p">,</span><span class="s2">"/"</span><span class="p">).</span><span class="nf">underscore</span> <span class="c1"># =&gt; "crm/property/anime/type"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>移除换行</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bak_date</span><span class="o">=</span><span class="sb">`date +%F`</span>
+<span class="n">file</span> <span class="o">=</span>  <span class="s1">'ran_'</span><span class="o">+</span><span class="s2">"</span><span class="si">#{</span><span class="n">bak_date</span><span class="si">}</span><span class="s2">"".gz"</span>
+<span class="n">file</span><span class="p">.</span><span class="nf">gsub!</span><span class="p">(</span><span class="sr">/\n/</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="转小写-downcase">转小写 downcase</h3>
+<blockquote>
+  <p>b.downcase # =&gt; “crm_property_anime_type”</p>
+</blockquote>
+
+<h3 id="classify">classify</h3>
+<blockquote>
+  <p>b.classify # =&gt; “CrmPropertyAnimeType”</p>
+</blockquote>
+
+<h3 id="包含-include">包含 include</h3>
+<p>“hello”.include? “lo” #=&gt; true
+“hello”.include? “ol” # =&gt; false</p>
+
+<h3 id="自加-nextsucc">自加 next/succ</h3>
+<blockquote>
+  <p>“abcd”.succ #=&gt; “abce”</p>
+</blockquote>
+
+<p>111.next #=&gt; 112</p>
+
+<h3 id="转数组">转数组</h3>
+<blockquote>
+  <p>” now’s  the time”.split        #=&gt; [“now’s”, “the”, “time”]</p>
+</blockquote>
+
+<blockquote>
+  <p>“1,2,,3,4,,”.split(‘,’)         #=&gt; [“1”, “2”, “”, “3”, “4”]</p>
+</blockquote>
+
+<h3 id="ruby-字符串长度不要超过-23-位字符">Ruby 字符串长度不要超过 23 位字符</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="no">Benchmark</span><span class="p">.</span><span class="nf">bm</span> <span class="k">do</span> <span class="o">|</span><span class="n">bench</span><span class="o">|</span>
+ <span class="n">run</span><span class="p">(</span><span class="s2">"12345678901234567890"</span><span class="p">,</span> <span class="n">bench</span><span class="p">)</span>
+ <span class="n">run</span><span class="p">(</span><span class="s2">"123456789012345678901"</span><span class="p">,</span> <span class="n">bench</span><span class="p">)</span>
+ <span class="n">run</span><span class="p">(</span><span class="s2">"1234567890123456789012"</span><span class="p">,</span> <span class="n">bench</span><span class="p">)</span>
+ <span class="n">run</span><span class="p">(</span><span class="s2">"12345678901234567890123"</span><span class="p">,</span> <span class="n">bench</span><span class="p">)</span>
+ <span class="n">run</span><span class="p">(</span><span class="s2">"123456789012345678901234"</span><span class="p">,</span> <span class="n">bench</span><span class="p">)</span>
+ <span class="n">run</span><span class="p">(</span><span class="s2">"1234567890123456789012345"</span><span class="p">,</span> <span class="n">bench</span><span class="p">)</span>
+ <span class="n">run</span><span class="p">(</span><span class="s2">"12345678901234567890123456"</span><span class="p">,</span> <span class="n">bench</span><span class="p">)</span>
+<span class="k">end</span>
+
+       <span class="n">user</span>     <span class="nb">system</span>      <span class="n">total</span>        <span class="n">real</span>
+<span class="mi">21</span> <span class="n">chars</span>  <span class="mf">0.150000</span>   <span class="mf">0.000000</span>   <span class="mf">0.150000</span> <span class="p">(</span>  <span class="mf">0.145835</span><span class="p">)</span>
+<span class="mi">22</span> <span class="n">chars</span>  <span class="mf">0.120000</span>   <span class="mf">0.000000</span>   <span class="mf">0.120000</span> <span class="p">(</span>  <span class="mf">0.127440</span><span class="p">)</span>
+<span class="mi">23</span> <span class="n">chars</span>  <span class="mf">0.130000</span>   <span class="mf">0.000000</span>   <span class="mf">0.130000</span> <span class="p">(</span>  <span class="mf">0.129458</span><span class="p">)</span>
+<span class="mi">24</span> <span class="n">chars</span>  <span class="mf">0.200000</span>   <span class="mf">0.000000</span>   <span class="mf">0.200000</span> <span class="p">(</span>  <span class="mf">0.201865</span><span class="p">)</span>
+<span class="mi">25</span> <span class="n">chars</span>  <span class="mf">0.210000</span>   <span class="mf">0.000000</span>   <span class="mf">0.210000</span> <span class="p">(</span>  <span class="mf">0.202730</span><span class="p">)</span>
+<span class="mi">26</span> <span class="n">chars</span>  <span class="mf">0.200000</span>   <span class="mf">0.000000</span>   <span class="mf">0.200000</span> <span class="p">(</span>  <span class="mf">0.201217</span><span class="p">)</span>
+<span class="mi">27</span> <span class="n">chars</span>  <span class="mf">0.200000</span>   <span class="mf">0.000000</span>   <span class="mf">0.200000</span> <span class="p">(</span>  <span class="mf">0.204451</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h2 id="文件读写">文件读写</h2>
+
+<h3 id="读文档--fileread">读文档  File.read</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">path</span> <span class="nb">name</span>
+  <span class="no">File</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/db/</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">countries</span> <span class="o">=</span>  <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">path</span><span class="p">(</span><span class="s2">"country.json"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="写文档--filewrite">写文档  File.write</h3>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/db/demo.json"</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+<span class="n">file</span><span class="p">.</span><span class="nf">write</span> <span class="no">User</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">to_json</span>
+<span class="k">end</span>
+
+</code></pre></div></div>
+
+<h2 id="查看项目代码行数-rake-stats">查看项目代码行数 rake stats</h2>
+<blockquote>
+  <p>rake stats</p>
+</blockquote>
+
+<h2 id="自定义验证">自定义验证</h2>
+<p>http://api.rubyonrails.org/classes/ActiveModel/Validations/ClassMethods.html</p>
+
+<p>验证名称不能以数字开头</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">validate</span> <span class="ss">:validate_name_is_number</span>
+
+<span class="k">def</span> <span class="nf">validate_name_is_number</span>
+  <span class="k">if</span> <span class="nb">self</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="n">errors</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="s2">"名字不能全为数字"</span><span class="p">)</span>
+  <span class="k">else</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+</code></pre></div></div>
+
+<h2 id="取随机记录">取随机记录</h2>
+<blockquote>
+  <p>Product.order(‘RAND()’).limit(20)</p>
+</blockquote>
+
+<blockquote>
+  <p>Product.all.sample(20)</p>
+</blockquote>
+
+<p>第二种方式效率比较高</p>
+
+<h2 id="缓存随机数据">缓存随机数据</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Rails.cache.fetch("rand_products", expires_in: 1.day) do
+  Product.order('RAND()').limit(20).to_a
+end
+</code></pre></div></div>
+
+<p>使用 to_a 方法之后，会真正查询数据库，返回数据对象。</p>
+
+<h2 id="mysql在rails迁移处理过长的索引名称">MySQL在Rails迁移处理过长的索引名称</h2>
+<p>报错:</p>
+<blockquote>
+  <p>Index name ‘index_item_contacters_on_itemable_id_and_itemable_type_and_contacter_id’ on table ‘item_contacters’ is too long; the limit is 64 characters</p>
+</blockquote>
+
+<p>解决:</p>
+<blockquote>
+  <p>add_index :item_contacters, [:itemable_id, :itemable_type, :contacter_id],
+          :unique =&gt; true, :name =&gt; ‘item_contacters_index’</p>
+</blockquote>
+
+          </article>
+          <hr class="boundary">
+        </div>
+
+        <div class="pad-min"></div>
+        <div id="post-comment" class="sheet post">
+            <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="/2016-02-18/ruby-usage/" ></div>
+
+<script type="text/javascript">
+(function(){
+var appid = "cysX5sziD";
+var conf = "prod_45285c7173354294675fbce39f863858";
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </div>
+
+    </div>
+
+    <div class="content-navigation col-lg-3">
+      <div class="shadow-bottom-center" >
+        <div class="content-navigation-toc">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Toc
+            </div>
+            <div class="content-navigation-list toc"></div>
+        </div>
+        <div class="content-navigation-tag">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Tags
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#ruby"><span class="octicon octicon-tag"></span>&nbsp;ruby</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-navigation-related">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Related
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+
+                    
+
+                    
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-12-22/Ruby-Selenium/">Ruby With Selenium</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-12-13/Ruby-Errors-Record/">Ruby 报错记录</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-09-15/ruby-send-message-to-activemq/">Rails Send Message To ActiveMQ</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-09-01/ip-digital-interchange/">ip digital interchange</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-08-14/rvm-usage/">rvm</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-05-06/ruby-character-process/">字符串处理</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-12-05/arrary/">Ruby Array</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-04-13/Ruby-Interview/">ruby 面试题目</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-03-29/rails-flash-angularjs/">在 AngularJS 中显示 Rails Flash中消息</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-03-25/rails-gems/">常用 Gems</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-02-18/Ruby-For-Test/">Ruby模拟多线程测试接口服务器压力</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2015-11-25/Write-Ruby-Gem/">Ruby Gem包制作</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2015-11-17/ruby-style-guide/">Ruby Style Guide</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
+
+    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
+        <a href="javascript:void(0);">
+            <div class="arrow"></div>
+            <div class="stick"></div>
+        </a>
+    </div>
+</div>
+
+<footer  class="footnote footnote-tiffany">
+	<div class="container">
+		<div class="summary">
+			总访问<span id="busuanzi_value_site_pv"></span>次，访客<span id="busuanzi_value_site_uv"></span>人次，本页总阅读<span id="busuanzi_value_page_pv"></span>次
+		</div>
+		</line>
+		<a class="foot-item" href="mailto:cxhyun@126.com" target="_blank"><span class="octicon octicon-mail"></span></a>
+		<a class="foot-item" href="https://github.com/cheenwe" target="_blank"><span class="octicon octicon-mark-github"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/feed.xml" target="_blank"><span class="octicon octicon-rss"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/link/"><span class="octicon octicon-link-external"></span></a>
+		&nbsp;
+		<a href="http://0.0.0.0:4000/about/"><span class="word-keep">&copy;Cheenwe</span></a>
+		<a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备16011691号</a>
+
+	</div>
+</footer>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/static/js/lunr.min.js"></script>
+<script src="/static/js/search.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/script.js"></script>
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/post.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/toc.js"></script>
+
+
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?53d63f40f6eef2f51c5cf14443efe386";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

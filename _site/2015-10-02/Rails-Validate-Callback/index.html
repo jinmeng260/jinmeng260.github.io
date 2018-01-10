@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>rails常用的回调方法</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="rails常用的回调方法, rails, callback,rails, Cheenwe" />
+    <meta name="description" content="rails常用的回调方法, rails, callback,rails, 回调及验证" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://0.0.0.0:4000/favicon.ico" />
+    <link rel="canonical" href="http://0.0.0.0:4000/2015-10-02/Rails-Validate-Callback/" />
+    <link rel="alternate" type="application/rss+xml" title="Cheenwe" href="http://0.0.0.0:4000/feed.xml"  />
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/octicons/3.5.0/octicons.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/post.css" />
+    
+</head>
+
+
+<body>
+<div class="main">
+
+  
+  
+  <header>
+    <nav class="navbar navbar-tiffany rectangle" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://0.0.0.0:4000/">Cheenwe</a>
+          <p class="navbar-text">A Ruby Coder</p>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li>
+            <a href="http://0.0.0.0:4000/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
+            </li>
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/archive/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Archive</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/category/" class="word-keep"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;Category</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/tags/" class="word-keep"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;Tag</a>
+            </li>
+            
+            
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/project/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Project</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+<li>
+
+  <a href="#stq=" class="search-button" data-toggle="modal" data-target="#myModal"><span class="octicon octicon-search">&nbsp;&nbsp; Search</span></a>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form action="get" id="site_search">
+            <input type="text" id="search_box" placeholder="Search">
+            <button class="btn btn-default" type="submit"><span class="octicon octicon-search"></span></button>
+          </form>
+        </div>
+        <div class="modal-body">
+          <ul id="search_results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+    <div class="container">
+        <div class="row">
+    <div class="content col-lg-9">
+        <div class="sheet post">
+          <header>
+            <h2>rails常用的回调方法</h2>
+            <p class="post-meta">
+                <span class="octicon octicon-clock"></span> Oct 2, 2015
+            </p>
+            <p class="post-tag">
+                <span><a href="http://0.0.0.0:4000/category/#rails"><span class="octicon octicon-list-unordered"></span>&nbsp;rails</a></span>
+                <span>
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#callback"><span class="octicon octicon-tag"></span>&nbsp;callback</a>
+                    
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#rails"><span class="octicon octicon-tag"></span>&nbsp;rails</a>
+                    
+                </span>
+            </p>
+          </header>
+          <hr class="boundary">
+          <article>
+            <h1 id="回调及验证">回调及验证</h1>
+
+<h2 id="常用的回调方法">常用的回调方法</h2>
+
+<h3 id="必填">必填</h3>
+
+<ul>
+  <li>validates_presence_of :name, :code</li>
+</ul>
+
+<h3 id="字段长度">字段长度</h3>
+
+<ul>
+  <li>
+    <p>validates_length_of :name, :minimum =&gt; 2 #maximum</p>
+  </li>
+  <li>
+    <p>validates_length_of :name, :in =&gt; 6..20</p>
+  </li>
+  <li>
+    <p>validates_length_of :phone, :is =&gt; 11</p>
+  </li>
+</ul>
+
+<h3 id="验证数字">验证数字</h3>
+
+<ul>
+  <li>
+    <p>validates_numericality_of :age, :only_integer =&gt; true</p>
+  </li>
+  <li>
+    <p>validates :age, numericality: { only_integer: true }</p>
+  </li>
+  <li>
+    <p>validates_numericality_of :age, :greater_than =&gt; 18 #greater_than_or_equal_to, equal_to, less_than, less_than_or_equal_to</p>
+  </li>
+  <li>
+    <p>validates_presence_of :price,
+    :message =&gt; Proc.new { |book, data|
+    “You must provide #{data[:attribute]} for #{book.title}”
+    }</p>
+  </li>
+</ul>
+
+<h3 id="验证为整数">验证为整数</h3>
+
+<ul>
+  <li>validates :amount, numericality: { greater_than_or_equal_to: 0 }, :allow_nil =&gt; true</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:greater_than：属性值必须比指定的值大。该选项默认的错误消息是“must be greater than %{count}”；
+:greater_than_or_equal_to：属性值必须大于或等于指定的值。该选项默认的错误消息是“must be greater than or equal to %{count}”；
+:equal_to：属性值必须等于指定的值。该选项默认的错误消息是“must be equal to %{count}”；
+:less_than：属性值必须比指定的值小。该选项默认的错误消息是“must be less than %{count}”；
+:less_than_or_equal_to：属性值必须小于或等于指定的值。该选项默认的错误消息是“must be less than or equal to %{count}”；
+:other_than：属性值必须与指定的值不同。该选项默认的错误消息是“must be other than %{count}”。
+:odd：如果设为 true，属性值必须是奇数。该选项默认的错误消息是“must be odd”；
+:even：如果设为 true，属性值必须是偶数。该选项默认的错误消息是“must be even”；
+</code></pre></div></div>
+
+<h3 id="唯一性">唯一性</h3>
+
+<ul>
+  <li>
+    <p>validates_uniqueness_of :code, :scope =&gt; :year, :message =&gt; “你的 code 重复了”, :on =&gt; :create</p>
+  </li>
+  <li>
+    <p>validates_uniqueness_of :phone, scope: :user_id, :message =&gt; “当前用户下手机号码重复”, :on =&gt; :create</p>
+  </li>
+</ul>
+
+<h3 id="格式正确">格式正确</h3>
+
+<ul>
+  <li>
+    <p>validates_format_of :email, :with =&gt; /\A([\w.%+-]+)@([\w-]+.)+([\w]{2,})\z/i</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>validates_format_of :url, :with =&gt;  /(^$)</td>
+          <td>(^(http</td>
+          <td>https):\/\/[a-z0-9]+([-.]{1}[a-z0-9]+)<em>.[a-z]{2,5}(([0-9]{1,5})?\/.</em>)?$)/ix</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>/([\s\S]<em>)-([\s\S]</em>)-\d{6}/.match?(“ｉ是-你好-123212”) #匹配任意字符　＊-*-123444</li>
+</ul>
+
+<h3 id="验证车牌号是否正确">验证车牌号是否正确</h3>
+
+<ul>
+  <li>validates_format_of :plate, with: /\A[京,津,渝,沪,冀,晋,辽,吉,黑,苏,浙,皖,闽,赣,鲁,豫,鄂,湘,粤,琼,川,贵,云,陕,秦,甘,陇,青,台,内蒙古,桂,宁,新,藏,澳,军,海,航,警][A-Z]\s?[0-9,A-Z]{5}\z/</li>
+</ul>
+
+<h2 id="可用的回调">可用的回调</h2>
+<p>下面列出了所有可用的 Active Record 回调，按照执行各操作时触发的顺序：</p>
+
+<h3 id="创建对象">创建对象</h3>
+
+<ul>
+  <li>
+    <p>before_validation</p>
+  </li>
+  <li>
+    <p>after_validation</p>
+  </li>
+  <li>
+    <p>before_save</p>
+  </li>
+  <li>
+    <p>around_save</p>
+  </li>
+  <li>
+    <p>before_create</p>
+  </li>
+  <li>
+    <p>around_create</p>
+  </li>
+  <li>
+    <p>after_create</p>
+  </li>
+  <li>
+    <p>after_save</p>
+  </li>
+</ul>
+
+<h3 id="更新对象">更新对象</h3>
+
+<ul>
+  <li>
+    <p>before_validation</p>
+  </li>
+  <li>
+    <p>after_validation</p>
+  </li>
+  <li>
+    <p>before_save</p>
+  </li>
+  <li>
+    <p>around_save</p>
+  </li>
+  <li>
+    <p>before_update</p>
+  </li>
+  <li>
+    <p>around_update</p>
+  </li>
+  <li>
+    <p>after_update</p>
+  </li>
+  <li>
+    <p>after_save</p>
+  </li>
+</ul>
+
+<h3 id="销毁对象">销毁对象</h3>
+
+<ul>
+  <li>
+    <p>before_destroy</p>
+  </li>
+  <li>
+    <p>around_destroy</p>
+  </li>
+  <li>
+    <p>after_destroy</p>
+  </li>
+</ul>
+
+<h2 id="跳过回调">跳过回调</h2>
+
+<ul>
+  <li>
+    <p>decrement</p>
+  </li>
+  <li>
+    <p>decrement_counter</p>
+  </li>
+  <li>
+    <p>delete</p>
+  </li>
+  <li>
+    <p>delete_all</p>
+  </li>
+  <li>
+    <p>increment</p>
+  </li>
+  <li>
+    <p>increment_counter</p>
+  </li>
+  <li>
+    <p>toggle</p>
+  </li>
+  <li>
+    <p>touch</p>
+  </li>
+  <li>
+    <p>update_column</p>
+  </li>
+  <li>
+    <p>update_columns</p>
+  </li>
+  <li>
+    <p>update_all</p>
+  </li>
+  <li>
+    <p>update_counters</p>
+  </li>
+</ul>
+
+<h2 id="关联删除">关联删除</h2>
+<p>has_many :users, dependent: :destroy</p>
+
+          </article>
+          <hr class="boundary">
+        </div>
+
+        <div class="pad-min"></div>
+        <div id="post-comment" class="sheet post">
+            <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="/2015-10-02/Rails-Validate-Callback/" ></div>
+
+<script type="text/javascript">
+(function(){
+var appid = "cysX5sziD";
+var conf = "prod_45285c7173354294675fbce39f863858";
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </div>
+
+    </div>
+
+    <div class="content-navigation col-lg-3">
+      <div class="shadow-bottom-center" >
+        <div class="content-navigation-toc">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Toc
+            </div>
+            <div class="content-navigation-list toc"></div>
+        </div>
+        <div class="content-navigation-tag">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Tags
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#callback"><span class="octicon octicon-tag"></span>&nbsp;callback</a>
+                    </li>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#rails"><span class="octicon octicon-tag"></span>&nbsp;rails</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-navigation-related">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Related
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+
+                    
+
+                    
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-12-13/Ruby-Errors-Record/">Ruby 报错记录</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-10-29/open-local-gem-server/">Rails 离线 Bundle</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-10-25/rails-offline-bundle/">Rails 离线 Bundle</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-08-04/rails-search-many-fields/">解决 Where 多条件查询</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-08-02/install-nokogiri-error/">安装 nokogiri gem 报错</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-07-18/activerecord-history/">常用方法记录</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2017-04-12/activerecord-with-mysql/">Activerecord 连 MySQL</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-11-22/rails-migration-execute-sql/">Migration 执行 SQL 语句</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-11-22/Use-Database-View-In-Rails-Development/">在 Rails 项目开发过程中使用视图</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-11-02/rails-where-condiction/">Rails Where Condiction</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-11-02/rails-join-table/">Rails Join Table</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-11-02/rails-generate-token/">Rails 生成 Token</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-11-02/rails-find-in-batches/">Rails 批量查询处理数据</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-11-02/rails-controller-cache/">Rails Controller 缓存</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-11-01/rails-with-uuid/">Rails项目使用UUID</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
+
+    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
+        <a href="javascript:void(0);">
+            <div class="arrow"></div>
+            <div class="stick"></div>
+        </a>
+    </div>
+</div>
+
+<footer  class="footnote footnote-tiffany">
+	<div class="container">
+		<div class="summary">
+			总访问<span id="busuanzi_value_site_pv"></span>次，访客<span id="busuanzi_value_site_uv"></span>人次，本页总阅读<span id="busuanzi_value_page_pv"></span>次
+		</div>
+		</line>
+		<a class="foot-item" href="mailto:cxhyun@126.com" target="_blank"><span class="octicon octicon-mail"></span></a>
+		<a class="foot-item" href="https://github.com/cheenwe" target="_blank"><span class="octicon octicon-mark-github"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/feed.xml" target="_blank"><span class="octicon octicon-rss"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/link/"><span class="octicon octicon-link-external"></span></a>
+		&nbsp;
+		<a href="http://0.0.0.0:4000/about/"><span class="word-keep">&copy;Cheenwe</span></a>
+		<a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备16011691号</a>
+
+	</div>
+</footer>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/static/js/lunr.min.js"></script>
+<script src="/static/js/search.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/script.js"></script>
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/post.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/toc.js"></script>
+
+
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?53d63f40f6eef2f51c5cf14443efe386";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Git commit message 规范</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="Git commit message 规范, git, git, Cheenwe" />
+    <meta name="description" content="Git commit message 规范, git, git, Git commit message 规范参考 AngularJS" />
+    <meta name="theme-color" content="#2CA6CB"/>
+    <link rel="shortcut icon" type="image/x-icon" media="screen" href="http://0.0.0.0:4000/favicon.ico" />
+    <link rel="canonical" href="http://0.0.0.0:4000/2016-04-18/git-commit-message/" />
+    <link rel="alternate" type="application/rss+xml" title="Cheenwe" href="http://0.0.0.0:4000/feed.xml"  />
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/octicons/3.5.0/octicons.min.css" >
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/highlight.css" />
+    <link rel="stylesheet" type="text/css" href="http://0.0.0.0:4000/static/css/post.css" />
+    
+</head>
+
+
+<body>
+<div class="main">
+
+  
+  
+  <header>
+    <nav class="navbar navbar-tiffany rectangle" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://0.0.0.0:4000/">Cheenwe</a>
+          <p class="navbar-text">A Ruby Coder</p>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li>
+            <a href="http://0.0.0.0:4000/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
+            </li>
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/archive/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Archive</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/category/" class="word-keep"><span class="octicon octicon-list-unordered"></span>&nbsp;&nbsp;Category</a>
+            </li>
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/tags/" class="word-keep"><span class="octicon octicon-tag"></span>&nbsp;&nbsp;Tag</a>
+            </li>
+            
+            
+            
+            
+            
+            <li>
+              <a href="http://0.0.0.0:4000/project/" class="word-keep"><span class="octicon octicon-repo"></span>&nbsp;&nbsp;Project</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+<li>
+
+  <a href="#stq=" class="search-button" data-toggle="modal" data-target="#myModal"><span class="octicon octicon-search">&nbsp;&nbsp; Search</span></a>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form action="get" id="site_search">
+            <input type="text" id="search_box" placeholder="Search">
+            <button class="btn btn-default" type="submit"><span class="octicon octicon-search"></span></button>
+          </form>
+        </div>
+        <div class="modal-body">
+          <ul id="search_results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+    <div class="container">
+        <div class="row">
+    <div class="content col-lg-9">
+        <div class="sheet post">
+          <header>
+            <h2>Git commit message 规范</h2>
+            <p class="post-meta">
+                <span class="octicon octicon-clock"></span> Apr 18, 2016
+            </p>
+            <p class="post-tag">
+                <span><a href="http://0.0.0.0:4000/category/#git"><span class="octicon octicon-list-unordered"></span>&nbsp;git</a></span>
+                <span>
+                    <a class="word-keep" href="http://0.0.0.0:4000/tags/#git"><span class="octicon octicon-tag"></span>&nbsp;git</a>
+                    
+                </span>
+            </p>
+          </header>
+          <hr class="boundary">
+          <article>
+            <h1 id="git-commit-message-规范">Git commit message 规范</h1>
+<p>参考 <a href="https://github.com/angular/angular/pulls">AngularJS</a></p>
+
+<h2 id="commit-message-的作用">Commit message 的作用</h2>
+<p>格式化的Commit message，有几个好处。</p>
+
+<h3 id="提供更多的历史信息方便快速浏览">提供更多的历史信息，方便快速浏览。</h3>
+<p>比如，下面的命令显示上次发布后的变动，每个commit占据一行。你只看行首，就知道某次 commit 的目的。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log   HEAD --pretty=format:%s
+
+git log --pretty=format:"%h - %an, %ar : %
+</code></pre></div></div>
+
+<h3 id="可以过滤某些commit比如文档改动便于快速查找信息">可以过滤某些commit（比如文档改动），便于快速查找信息。</h3>
+
+<p>比如，下面的命令仅仅显示本次发布新增加的功能。</p>
+
+<p>$ git log <last release=""> HEAD --grep feature</last></p>
+
+<h3 id="可以直接从commit生成change-log">可以直接从commit生成Change log。</h3>
+
+<p>Change Log 是发布新版本时, 用来说明与上一个版本差异的文档.</p>
+
+<h2 id="commit-message-格式">Commit message 格式</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+&lt;空行&gt;
+&lt;body&gt;
+&lt;空行&gt;
+&lt;footer&gt;
+</code></pre></div></div>
+
+<p>上面是一次Commit后Message格式规范，分成标题，内容详情，结尾三个部分，各有各的用处，没有多余项。</p>
+
+<p>头部即首行，是可以直接在页面中预览的部分，入上面图中所示，一共有三个部分<type>，<scope>，<subject>，含义分别如下</subject></scope></type></p>
+
+<p><strong>Type</strong></p>
+
+<ul>
+  <li>
+    <p>feat：新功能（feature）</p>
+  </li>
+  <li>
+    <p>fix：修补bug</p>
+  </li>
+  <li>
+    <p>docs：文档（documentation）</p>
+  </li>
+  <li>
+    <p>style： 不影响功能的代码变化（空格，格式化，丢失分号等）</p>
+  </li>
+  <li>
+    <p>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</p>
+  </li>
+  <li>
+    <p>test：增加测试</p>
+  </li>
+  <li>
+    <p>chore：构建过程或辅助工具的变动</p>
+  </li>
+</ul>
+
+<p><strong>Scope</strong>
+用来说明本次Commit影响的范围，即简要说明修改会涉及的部分。这个本来是选填项，但从AngularJS实际项目中可以看出基本上也成了必填项了。</p>
+
+<p><strong>Subject</strong>
+用来简要描述本次改动，概述就好了，因为后面还会在Body里给出具体信息。并且最好遵循下面三条:</p>
+
+<p>以动词开头，使用第一人称现在时，比如change，而不是changed或changes
+首字母不要大写
+结尾不用句号(.)。</p>
+
+<p><strong>Body</strong>
+body 里的内容是对上面subject里内容的展开，在此做更加详尽的描述，内容里应该包含修改动机和修改前后的对比。</p>
+
+<p><strong>Footer</strong>
+footer里的主要放置不兼容变更和Issue关闭的信息</p>
+<blockquote>
+  <p>Closes #23</p>
+</blockquote>
+
+<p>也可以一次关闭多个 issue</p>
+<blockquote>
+  <p>Closes #56, #25, #95</p>
+</blockquote>
+
+<p><strong>Revert</strong>
+此外如果需要撤销之前的Commit，那么本次Commit Message中必须以revert：开头，后面紧跟前面描述的Header部分，格式不变。并且，Body部分的格式也是固定的，必须要记录撤销前Commit的SHA值。</p>
+
+<h2 id="使用commitizen">使用Commitizen</h2>
+
+<h3 id="安装">安装</h3>
+
+<p>为了让我们能把这些规范应用到实际使用中，我们要借助于Commitizen这个Node工具，它会在我们Commit的过程中更具规范的内容来引导我们如何一步一步实施规范。当然，规范这种东西就没有唯一的，各家有各家的不同，这一点当然也被该工具想到了，你也可以自定义一份自己的规范，以插件的形式让Commitizen来根据自家规范提醒你。</p>
+
+<blockquote>
+  <p>npm install -g commitizen</p>
+</blockquote>
+
+<h2 id="配置">配置</h2>
+<p>如果项目中没有 package.json, 需要新建一个文件</p>
+<blockquote>
+  <p>nano package.json</p>
+</blockquote>
+
+<p>文件内容如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.1.6"
+  }
+}
+</code></pre></div></div>
+
+<p>上一步我们在全局范围内安装了commitizen，之后我们就可以在Git仓库中配置我们的Commit规范了。打开项目执行如下命令:</p>
+
+<blockquote>
+  <p>commitizen init cz-conventional-changelog –save –save-exact</p>
+</blockquote>
+
+<p>上面的cz-conventional-changelog就是AngularJS的规范，其它的规范你可以自行到官网上找找看，不行就自己花时间拟定一份吧。
+此命令帮你完成了下载cz-conventional-changelog规范，配置package.json(添加依赖和配置应用规范)，想看具体改动打开package.json即可。</p>
+
+<h2 id="使用">使用</h2>
+<p>以后，凡是用到git commit命令，一律改为使用</p>
+<blockquote>
+  <p>git cz
+这时，就会出现选项，用来生成符合格式的 Commit message。</p>
+</blockquote>
+
+<h2 id="validate-commit-msg">Validate-commit-msg</h2>
+<p>validate-commit-msg 用于检查 Node 项目的 Commit message 是否符合格式。</p>
+
+<p>它的安装是手动的。首先，拷贝下面这个JS文件，放入你的代码库。文件名可以取为validate-commit-msg.js。</p>
+
+<p>接着，把这个脚本加入 Git 的 hook。下面是在package.json里面使用 ghooks，把这个脚本加为commit-msg时运行。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  "config": {
+    "ghooks": {
+      "commit-msg": "./validate-commit-msg.js"
+    }
+  }
+</code></pre></div></div>
+<p>然后，每次git commit的时候，这个脚本就会自动检查 Commit message 是否合格。如果不合格，就会报错。</p>
+
+<h2 id="生成-change-log">生成 Change log</h2>
+
+<p>如果你的所有 Commit 都符合 Angular 格式，那么发布新版本时， Change log 就可以用脚本自动生成（例1，例2，例3）。</p>
+
+<p>生成的文档包括以下三个部分。</p>
+
+<p>New features
+Bug fixes
+Breaking changes.
+每个部分都会罗列相关的 commit ，并且有指向这些 commit 的链接。当然，生成的文档允许手动修改，所以发布前，你还可以添加其他内容。</p>
+
+<p>conventional-changelog 就是生成 Change log 的工具，运行下面的命令即可。</p>
+
+<blockquote>
+  <p>npm install -g conventional-changelog
+cd my-project
+conventional-changelog -p angular -i CHANGELOG.md -w
+上面命令不会覆盖以前的 Change log，只会在CHANGELOG.md的头部加上自从上次发布以来的变动。</p>
+</blockquote>
+
+<p>如果你想生成所有发布的 Change log，要改为运行下面的命令。</p>
+
+<blockquote>
+  <p>conventional-changelog -p angular -i CHANGELOG.md -w -r 0
+为了方便使用，可以将其写入package.json的scripts字段。</p>
+  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "scripts": {
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0"
+  }
+}
+</code></pre></div>  </div>
+  <p>以后，直接运行下面的命令即可。</p>
+</blockquote>
+
+<blockquote>
+  <p>npm run changelog</p>
+</blockquote>
+
+<h2 id="附">附</h2>
+
+<blockquote>
+  <p>node_modules/cz-conventional-changelog/index.js</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+"format cjs";
+
+var wrap = require('word-wrap');
+
+// This can be any kind of SystemJS compatible module.
+// We use Commonjs here, but ES6 or AMD would do just
+// fine.
+module.exports = {
+
+  // When a user runs `git cz`, prompter will
+  // be executed. We pass you cz, which currently
+  // is just an instance of inquirer.js. Using
+  // this you can ask questions and get answers.
+  //
+  // The commit callback should be executed when
+  // you're ready to send back a commit template
+  // to git.
+  //
+  // By default, we'll de-indent your commit
+  // template and will keep empty lines.
+  prompter: function(cz, commit) {
+    console.log('\nLine 1 will be cropped at 100 characters. All other lines will be wrapped after 100 characters.\n');
+
+    // Let's ask some questions of the user
+    // so that we can populate our commit
+    // template.
+    //
+    // See inquirer.js docs for specifics.
+    // You can also opt to use another input
+    // collection library if you prefer.
+    cz.prompt([
+      {
+        type: 'list',
+        name: 'type',
+        message: '选择您正在提交的内容:',
+        choices: [
+        {
+          name: 'Feature: 新功能添加',
+          value: 'feat'
+        }, {
+          name: 'Fix bug: 修补bug',
+          value: 'fix'
+        }, {
+          name: 'Documentation: 文档添加及修改',
+          value: 'docs'
+        }, {
+          name: 'Style: 不影响功能的代码变化（空格，格式化，丢失分号等）',
+          value: 'style'
+        }, {
+          name: 'Refactor:    代码重构',
+          value: 'refactor'
+        }, {
+          name: 'Performance improves:    提高性能的代码更改',
+          value: 'perf'
+        }, {
+          name: 'Add test:    添加测试代码，或功能测试代码添加',
+          value: 'test'
+        }, {
+          name: 'Auxiliary tools:    改变构建过程或辅助工具和库，如文档生成',
+          value: 'chore'
+        }]
+      }, {
+        type: 'input',
+        name: 'scope',
+        message: '用来说明本次Commit影响的范围，即简要说明修改会涉及的部分。:\n'
+      }, {
+        type: 'input',
+        name: 'subject',
+        message: '用来简要描述本次改动，概述就好了，因为后面还会在Body里给出具体信息:\n'
+      }, {
+        type: 'input',
+        name: 'body',
+        message: '对上面subject里内容的展开，在此做更加详尽的描述，内容里应该包含修改动机和修改前后的对比:\n'
+      }, {
+        type: 'input',
+        name: 'footer',
+        message: '不兼容变更和Issue关闭的信息:\n,如:  Closes #56, #25'
+      }
+    ]).then(function(answers) {
+
+      var maxLineWidth = 100;
+
+      var wrapOptions = {
+        trim: true,
+        newline: '\n',
+        indent:'',
+        width: maxLineWidth
+      };
+
+      // parentheses are only needed when a scope is present
+      var scope = answers.scope.trim();
+      scope = scope ? '(' + answers.scope.trim() + ')' : '';
+
+      // Hard limit this line
+      var head = (answers.type + scope + ': ' + answers.subject.trim()).slice(0, maxLineWidth);
+
+      // Wrap these lines at 100 characters
+      var body = wrap(answers.body, wrapOptions);
+      var footer = wrap(answers.footer, wrapOptions);
+
+      commit(head + '\n\n' + body + '\n\n' + footer);
+    });
+  }
+}
+
+
+</code></pre></div></div>
+
+          </article>
+          <hr class="boundary">
+        </div>
+
+        <div class="pad-min"></div>
+        <div id="post-comment" class="sheet post">
+            <!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="/2016-04-18/git-commit-message/" ></div>
+
+<script type="text/javascript">
+(function(){
+var appid = "cysX5sziD";
+var conf = "prod_45285c7173354294675fbce39f863858";
+var width = window.innerWidth || document.documentElement.clientWidth;
+if (width < 960) {
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+
+        </div>
+
+    </div>
+
+    <div class="content-navigation col-lg-3">
+      <div class="shadow-bottom-center" >
+        <div class="content-navigation-toc">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Toc
+            </div>
+            <div class="content-navigation-list toc"></div>
+        </div>
+        <div class="content-navigation-tag">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Tags
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+                    <li>
+                        <a href="http://0.0.0.0:4000/tags#git"><span class="octicon octicon-tag"></span>&nbsp;git</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-navigation-related">
+            <div class="content-navigation-header">
+                <span class="octicon octicon-list-unordered"></span>&nbsp;Related
+            </div>
+            <div class="content-navigation-list">
+                <ul>
+                    
+
+                    
+
+                    
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-08-02/git-branch-and-usage/">Git 分支命名规范</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-04-18/Version-Manage/">软件版本阶段说明</a>
+                            </li>
+                        
+                            <li>
+                                <a href="http://0.0.0.0:4000/2016-01-12/git-usage/">git 备忘</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
+
+    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
+        <a href="javascript:void(0);">
+            <div class="arrow"></div>
+            <div class="stick"></div>
+        </a>
+    </div>
+</div>
+
+<footer  class="footnote footnote-tiffany">
+	<div class="container">
+		<div class="summary">
+			总访问<span id="busuanzi_value_site_pv"></span>次，访客<span id="busuanzi_value_site_uv"></span>人次，本页总阅读<span id="busuanzi_value_page_pv"></span>次
+		</div>
+		</line>
+		<a class="foot-item" href="mailto:cxhyun@126.com" target="_blank"><span class="octicon octicon-mail"></span></a>
+		<a class="foot-item" href="https://github.com/cheenwe" target="_blank"><span class="octicon octicon-mark-github"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/feed.xml" target="_blank"><span class="octicon octicon-rss"></span></a>
+		<a class="foot-item" href="http://0.0.0.0:4000/link/"><span class="octicon octicon-link-external"></span></a>
+		&nbsp;
+		<a href="http://0.0.0.0:4000/about/"><span class="word-keep">&copy;Cheenwe</span></a>
+		<a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备16011691号</a>
+
+	</div>
+</footer>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="/static/js/lunr.min.js"></script>
+<script src="/static/js/search.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/script.js"></script>
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/post.js"></script>
+
+<script type="text/javascript" src="http://0.0.0.0:4000/static/js/toc.js"></script>
+
+
+
+
+    <script>
+    // 百度统计代码
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?53d63f40f6eef2f51c5cf14443efe386";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
