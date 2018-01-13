@@ -1,14 +1,11 @@
 ---
 layout: post
-title: nginx config
+title: nginx config:HTTPS
 tags:   nginx 
 category:  nginx
----  
+---
 
-
-
-
-#  nginx config
+#  nginx config:HTTPS
 
 ## open gzip
 ```
@@ -54,11 +51,9 @@ server {
 
 ```
 
-
 ## http to https
 
 ```
-
 server {
   listen      http://xxxx.cn;
   server_name server_name;
@@ -66,4 +61,3 @@ server {
 }
 
 ```
-% 
