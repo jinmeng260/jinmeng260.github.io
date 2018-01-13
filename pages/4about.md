@@ -9,19 +9,30 @@ published: true
 
 ### 技术
 
-- Ruby
+- language:
+  - Python/Bash/C#
 
-- Ruby on Rails
+- OS:
+  - GNU/Linux Unix
 
-- MySQL
-
-- AngularJS
+- Apps:
+  - Web server
+  - DB
+  - HA
+  - LB
+  - NoSQL
+  - Automation Operation
+  - Monitoring
+  - Security 
+  - VCS
+  - ,.etc
 
 
 ### 联系我
 
-[me@cheenwe.cn](mailto:cxhyun@126.com)
+[contact me](mailto:jinmeng260@yahoo.com)
 
 ### 感谢
 
 * [Jekyll](http://jekyllrb.com)
+* [chenwen](mailto:cxhyun@126.com)
