@@ -11,10 +11,10 @@ paginate: 10
 paginate_path: ":num"
 baseurl: ""
 
-title: "chownmax"
-email: "@gamil.com"
-description: "for personal notes"
-beian: "no beian"
+title: "M_Tech.log"
+email: "jinmeng260@yahoo.com"
+description: "Knowlege,tips,thought&sketches"
+#beian:
 github_username:  "jinmeng260"
 #swiftype_searchId: "9TDAXeK2smEEtWndRZJB"
 duoshuo_shortname: "adjustment"
