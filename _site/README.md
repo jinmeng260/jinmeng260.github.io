@@ -1,8 +1,7 @@
 # 博客地址
 
-<https://cheenwe.cn/>
-
-记录
+- <https://jinmeng260.github.io>
+---
 
 
 ## 1. 统计

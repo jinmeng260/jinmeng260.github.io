@@ -46,7 +46,7 @@ function backToTop() {
 //         e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.appendChild(s);
 //     })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
 
-//     _st('install','9TDAXeK2smEEtWndRZJB','2.0.0');
+//     _st('install','','2.0.0');
 // }
 
 

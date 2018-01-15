@@ -13,12 +13,12 @@ baseurl: ""
 
 title: "M_Tech.log"
 email: "jinmeng260@yahoo.com"
-description: "Knowlege,tips,thought&sketches"
+description: "Tips,sketches..."
 #beian:
 github_username:  "jinmeng260"
 #swiftype_searchId: "9TDAXeK2smEEtWndRZJB"
 duoshuo_shortname: "adjustment"
-baidu_tongji_id: "53d63f40f6eef2f51c5cf14443efe386"
+#baidu_tongji_id: "53d63f40f6eef2f51c5cf14443efe386"
 
 
 defaults:
