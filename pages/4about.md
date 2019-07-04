@@ -13,19 +13,19 @@ published: true
   - Python/Bash/C#
 
 - OS:
-  - GNU/Linux Unix
+  - GNU/Linux 
+  - Unix
 
 - Apps:
   - Web server
-  - DB
-  - HA
-  - LB
-  - NoSQL
-  - Automation Operation
+  - DB/NoSQL
+  - HA/LB
+  - Container/Docker/k8s
+  - Devops/CICD
   - Monitoring
   - Security 
-  - VCS
-  - ,.etc
+  - Tools
+  - Misc
 
 
 ### 联系我
@@ -35,4 +35,4 @@ published: true
 ### 感谢
 
 * [Jekyll](http://jekyllrb.com)
-* [chenwen](mailto:cxhyun@126.com)
+* [jinmax](mailto:jinmeng260@gmail.com)
